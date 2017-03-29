@@ -7,7 +7,6 @@
 @logoW: 150px;
 @logoH: 100px;
 @taglineSize: 24px;
-@taglineMTop: 24px;
 
 /* Clearfix */
 .Cf:before,
@@ -64,20 +63,28 @@ body {
     }
 }
 .header {
+    background: url('images/logo-2.png') no-repeat 10px 50px;
+    background-size: @logoW @logoH;
     position: relative;
     height: 132px;
-    width: @pageW;
+    max-width: @pageW;
     margin: 0 auto;
     padding: 50px 0 0 0;
     vertical-align: top;
+    font-size: 0;
+    &:before {
+        display: block;
+        content: "";
+        height: 24px;
+        width: 100%;
+    }
 }
 .body {
     background: #fff;
-    padding: 20px 0;
-    width: @pageW - 40;
+    width: @pageW - 60;
     margin: 0 auto;
     box-shadow: #777 0 1px 4px;
-    padding: 20px;
+    padding: 30px;
 }
 .footer {
     width: 100%;
@@ -111,7 +118,7 @@ body {
     top: 0;
     width: @pageW - 40;
     left: 20px;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #bbb;
     ul {
         display: inline-flex;
         width: 100%;
@@ -120,11 +127,12 @@ body {
     li {
         font-size: 0;
         a {
-            padding: 8px 32px;
+            padding: 8px 48px;
             font-size: 18px;
             letter-spacing: 2px;
             text-decoration: none;
             display: block;
+            white-space: nowrap;
             &:link, &:visited, &:hover, &:active {
                 color: #555;
             }
@@ -143,16 +151,13 @@ body {
 .title {
     position: relative;
     display: inline-block;
-    background: url('images/logo-2.png') no-repeat;
-    background-size: @logoW @logoH;
     vertical-align: bottom;
-    margin: 0 0 0 10px;
     height: @logoH;
-
+    width: 70%;
     .name {
         position: absolute;
-        top: @logoH + 1;
-        left: 13px;
+        top: 80px;
+        left: 23px;
         display: block;
         font-size: 17px;
         color: #000;
@@ -162,23 +167,21 @@ body {
     .tagline {
         display: block;
         font-size: @taglineSize;
-        margin: @taglineMTop 0 0 380px;
         letter-spacing: 2.4px;
         font-weight: 300;
         color: #666;
-
+        text-align: right;
     }
 }
-.contact {
+.phone {
     display: inline-block;
     vertical-align: top;
-}
-.phone {
+    width: 30%;
     font-weight: 300;
     font-size: @taglineSize;
     color: #666;
     letter-spacing: 2px;
-    margin: @taglineMTop 0 0 0;
+    white-space: nowrap;
     .info {
         a {
             text-decoration: none;
@@ -208,17 +211,18 @@ body {
     border: 0;
 }
 .address {
-    position: relative;
+    position: absolute;
     font-size: 16px;
     letter-spacing: 1px;
-    top: 16px;
-    left: -115px;
-    padding: 2px 0 0 32px;
+    bottom: 32px;
+    right: 30px;
+    padding: 2px 100px 0 32px;
     white-space: nowrap;
     color: #777;
     .note {
         margin: 0 0 0 20px;
         position: absolute;
+        right: 0;
         white-space: nowrap;
     }
 }
@@ -268,4 +272,43 @@ body {
             transform: rotate(90deg);
         }
     }
+}
+.content {
+    color: #555;
+    h2 {
+        font-weight: 300;
+        color: @color-eden;
+    }
+    
+}
+
+// smaller desktop or tablet
+@media only screen and (max-width : 960px) {
+    .title {
+        width: 60%;
+        .tagline {
+            font-size: 18px;
+        }
+    }
+    .phone {
+        width: 40%;
+        font-size: 18px;
+    }
+    .nav {
+        width: 95%;
+        li {
+            a {
+                padding: 8px 24px;
+                font-size: 15px;
+            }
+        }
+        
+    }
+}
+// mobile
+@media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+
 }
