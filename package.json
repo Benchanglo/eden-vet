@@ -1,0 +1,45 @@
+{
+    "name": "Eden-vet",
+    "author": {
+        "name": "Azai Chan",
+        "email": "azai.tw@gmail.com"
+    },
+    "version": "0.0.1",
+    "description": "Eden-vet website with build scripts",
+    "homepage": "",
+    "keywords": [],
+    "main": "server.js",
+    "scripts": {
+        "build": "mkdir ./src/rendered; gulp build; rm -rf ./src/rendered",
+        "lint": "gulp lint"
+    },
+    "dependencies": {
+        "gulp": "3.8.10",
+        "gulp-base64": "0.1.2",
+        "gulp-clean": "*",
+        "gulp-concat": "*",
+        "gulp-ejs": "*",
+        "gulp-inline-source": "*",
+        "gulp-jshint": "*",
+        "gulp-jsonlint": "*",
+        "gulp-less": "3.0.1",
+        "gulp-clean-css": "2.3.2",
+        "gulp-minify-html": "*",
+        "gulp-rename": "*",
+        "gulp-uglify": "*",
+        "jshint": "*"
+    },
+    "repository": {
+    "type": "git",
+    "url": "git://github.com:azaitw/eden-vet.git"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": ""
+        }
+    ],
+    "engines": {
+        "node": ">= 0.10.0"
+    }
+}

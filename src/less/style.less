@@ -1,0 +1,271 @@
+@import "normalize.less";
+
+@color-eden: #00bcaf;
+@color-eden-dark: #08978e;
+@color-tiffany: #6dd0cd;
+@pageW: 960px;
+@logoW: 150px;
+@logoH: 100px;
+@taglineSize: 24px;
+@taglineMTop: 24px;
+
+/* Clearfix */
+.Cf:before,
+.Cf:after {content: " ";display: table}
+.Cf:after {clear: both}
+.Cf {*zoom: 1}
+
+/* Hide text */
+.notxt {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px; 
+    overflow: hidden; 
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */ 
+    clip: rect(1px, 1px, 1px, 1px); 
+}
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #f6f2e4;
+    &.overlay {
+        overflow: hidden;
+        .mapOverlay {
+            display: inline-flex;
+        }
+    }
+}
+.page {
+    position: relative;
+    //  http://api.thumbr.it/whitenoise-150x150.png?background=ffffff&noise=dddddd&density=15&opacity=50
+    background: url('images/bg2.png') repeat;
+    z-index: 2;
+    &:before {
+        display: block;
+        content: " ";
+        position: absolute;
+        top: 220px;
+        width: 100%;
+        height: 280px;
+        background: url('images/paws.png') repeat;
+        background-size: 200px 280px;
+        z-index: 1;
+    }
+    &:after {
+        display: block;
+        content: " ";
+        position: absolute;
+        top: 220px;
+        width: 100%;
+        height: 280px;
+        // http://www.cssmatic.com/noise-texture
+        background: url('images/whitenoise-150x150.png') repeat;
+        z-index: 0;
+        box-shadow: #777 0 0 5px;
+    }
+}
+.header {
+    position: relative;
+    height: 132px;
+    width: @pageW;
+    margin: 0 auto;
+    padding: 50px 0 0 0;
+    vertical-align: top;
+}
+.body {
+    background: #fff;
+    padding: 20px 0;
+    width: @pageW - 40;
+    margin: 0 auto;
+    box-shadow: #777 0 1px 4px;
+    padding: 20px;
+}
+.footer {
+    width: 100%;
+    height: 50px;
+}
+.wrap {
+    position: relative;
+    width: 1080px;
+    max-width: 100%;
+    min-height: 400px;
+    margin: 0 auto;
+    z-index: 10;
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+    max-height: 400px;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 15;
+    border: 2px solid #fff;
+    box-shadow: #777 0 2px 6px;
+    img {
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+.nav {
+    position: absolute;
+    top: 0;
+    width: @pageW - 40;
+    left: 20px;
+    border-bottom: 1px solid #555;
+    ul {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+    }
+    li {
+        font-size: 0;
+        a {
+            padding: 8px 32px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: block;
+            &:link, &:visited, &:hover, &:active {
+                color: #555;
+            }
+            &:hover {
+                color: #888;
+            }
+            &.selected {
+                background: url('images/whitenoise-150x150.png') repeat;
+                box-shadow: #777 0 0 2px;
+                color: #eee;
+            }
+        }
+    }
+}
+
+.title {
+    position: relative;
+    display: inline-block;
+    background: url('images/logo-2.png') no-repeat;
+    background-size: @logoW @logoH;
+    vertical-align: bottom;
+    margin: 0 0 0 10px;
+    height: @logoH;
+
+    .name {
+        position: absolute;
+        top: @logoH + 1;
+        left: 13px;
+        display: block;
+        font-size: 17px;
+        color: #000;
+        letter-spacing: 4px;
+        font-weight: 400;
+    }
+    .tagline {
+        display: block;
+        font-size: @taglineSize;
+        margin: @taglineMTop 0 0 380px;
+        letter-spacing: 2.4px;
+        font-weight: 300;
+        color: #666;
+
+    }
+}
+.contact {
+    display: inline-block;
+    vertical-align: top;
+}
+.phone {
+    font-weight: 300;
+    font-size: @taglineSize;
+    color: #666;
+    letter-spacing: 2px;
+    margin: @taglineMTop 0 0 0;
+    .info {
+        a {
+            text-decoration: none;
+            &:link, &:visited {
+                color: @color-eden;
+            };
+            &:hover {
+                color: @color-tiffany;
+            }
+            &:active {
+                color: @color-eden-dark;
+            }
+        }
+    }
+}
+.mapLink {
+    @w: 40px / 2;
+    @h: 56px / 2;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: @h;
+    height: @h;
+    background: url('images/map.png') no-repeat center;
+    background-size: @w @h;
+    border: 0;
+}
+.address {
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 1px;
+    top: 16px;
+    left: -115px;
+    padding: 2px 0 0 32px;
+    white-space: nowrap;
+    color: #777;
+    .note {
+        margin: 0 0 0 20px;
+        position: absolute;
+        white-space: nowrap;
+    }
+}
+.mapOverlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    padding: 40px 0 0 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    .bd {
+        position: relative;
+        width: 700px + 25;
+        height: 500px + 25;
+        padding: 25px 3px 3px 3px;
+        iframe {
+            outline: 8px solid #fff;
+        }
+    }
+    .close {
+        @d: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+        border: 0;
+        width: @d;
+        height: @d;
+        background: url('images/bone.png') no-repeat;
+        background-size: @d @d;
+        &:before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: @d;
+            height: @d;
+            background: url('images/bone.png') no-repeat;
+            background-size: @d @d;
+            transform: rotate(90deg);
+        }
+    }
+}

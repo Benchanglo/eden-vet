@@ -1,0 +1,38 @@
+<div class="header">
+    <h1 class="title">
+        <span class="name"><%= h1.name %></span>
+        <span class="tagline"><%= h1.tagline %></span>
+    </h1>
+    <div class="nav">
+        <nav>
+            <ul>
+                <% for (var i = 0; i < nav.length; i += 1) { %>
+                    <li>
+                        <a href="/<%= nav[i].page %>.html"
+                            <% if (pageName === nav[i].page) { %>class="selected"<% } %>
+                        >
+                            <%= nav[i].name %>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </nav>
+    </div>
+    <div class="contact">
+        <address>
+            <div class="phone">
+                <span class="label"><%= phone.label %></span>
+                <span class="info"><a href="tel:<%= phone.label %>"><%= phone.info %></a></span>
+            </div>
+            <div class="address">
+                <span class="label notxt"><%= address.label %></span>
+                <button class="mapLink"><span class="notxt">打開地圖</span></button>
+                <span class="info">
+                    <!-- iphone: http://maps.apple.com/?q=台北市中山區北安路554巷33號 -->
+                    <%= address.info %></a>
+                </span>
+                <span class="note"><%= address.note %></span>
+            </div>
+        </address>
+    </div>
+</div>

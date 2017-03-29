@@ -1,0 +1,48 @@
+{
+    "h1": {
+        "name": "伊甸動物醫院",
+        "tagline": "台北24小時急診"
+    },
+    "nav": [
+        {
+            "url": "/",
+            "page": "index",
+            "name": "首頁"
+        },
+        {
+            "url": "/about.html",
+            "page": "about",
+            "name": "關於伊甸"
+        },
+        {
+            "url": "/service.html",
+            "page": "service",
+            "name": "服務項目"
+        },
+        {
+            "url": "/people.html",
+            "page": "people",
+            "name": "醫師團隊"
+        },
+        {
+            "url": "/schedule.html",
+            "page": "schedule",
+            "name": "門診時間"
+        }
+    ],
+    "phone": {
+        "label": "專線：",
+        "info": "02-8509-2579"
+    },
+    "address": {
+        "label": "地址：",
+        "info": "台北市中山區北安路554巷33號",
+        "note": "捷運大直站"
+    },
+    "index": {
+        "head": {
+            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護",
+            "description": "eden-vet desc"
+        }
+    }
+}
