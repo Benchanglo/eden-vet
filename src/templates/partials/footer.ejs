@@ -1,3 +1,14 @@
 <div class="footer">
-    ft
+    <footer>
+        <ul>
+            <% for (var i = 0; i < footer.line1.length; i += 1) { %>
+                <li><%= footer.line1[i] %></li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for (var i = 0; i < footer.line2.length; i += 1) { %>
+                <li><%= footer.line2[i] %></li>
+            <% } %>
+        </ul>
+    </footer>
 </div>
