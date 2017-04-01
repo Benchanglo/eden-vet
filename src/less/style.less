@@ -27,9 +27,11 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
     background: #f6f2e4;
     &.overlay {
-        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        overflow-y: scroll;
         .mapOverlay {
-            display: inline-flex;
+            display: block;
         }
     }
 }
@@ -57,13 +59,14 @@ body {
         width: 100%;
         height: 280px;
         // http://www.cssmatic.com/noise-texture
-        background: url('images/whitenoise-150x150.png') repeat;
+        //background: url('images/whitenoise-150x150.png') repeat;
+        background: url('images/bg-b1.png') repeat;
         z-index: 0;
-        box-shadow: #777 0 0 5px;
+        //box-shadow: #777 0 0 1px;
     }
 }
 .header {
-    background: url('images/logo-2.png') no-repeat 10px 50px;
+    background: url('images/logo-1.png') no-repeat 10px 50px;
     background-size: @logoW @logoH;
     position: relative;
     height: 132px;
@@ -80,10 +83,14 @@ body {
     }
 }
 .body {
+    position: relative;
+    top: -3px;
     background: #fff;
     width: @pageW - 60;
     margin: 0 auto;
-    box-shadow: #777 0 1px 4px;
+    //box-shadow: #777 0 1px 4px;
+    //border: 3px solid @color-tiffany;
+    border-radius: 0 0 15px 15px;
     padding: 30px;
     font-size: 0;
 }
@@ -106,8 +113,8 @@ body {
     min-height: 280px;
     margin: 0 auto;
     z-index: 15;
-    border: 2px solid #fff;
-    box-shadow: #777 0 2px 6px;
+    border: 6px solid #fff;
+    border-radius: 30px;
     img {
         position: relative;
         margin: 0 auto;
@@ -119,7 +126,18 @@ body {
     top: 0;
     width: @pageW - 40;
     left: 20px;
-    border-bottom: 1px solid #bbb;
+    //border-bottom: 3px solid @color-eden;
+    &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        border-radius: 10px;
+        background: @color-eden;
+    }
     ul {
         display: inline-flex;
         width: 100%;
@@ -128,21 +146,27 @@ body {
     li {
         font-size: 0;
         a {
-            padding: 8px 48px;
+            margin: 3px 0 0 0;
+            padding: 6px 48px 8px 48px;
             font-size: 18px;
             letter-spacing: 2px;
+            border-radius: 12px 12px 0 0;
             text-decoration: none;
             display: block;
             white-space: nowrap;
-            &:link, &:visited, &:hover, &:active {
+            &:link, &:visited, &:active {
                 color: #555;
             }
             &:hover {
-                color: #888;
+                color: @color-eden;
+            }
+            &:active {
+                color: @color-tiffany;
             }
             &.selected {
-                background: url('images/whitenoise-150x150.png') repeat;
-                box-shadow: #777 0 0 2px;
+                //background: url('images/whitenoise-150x150.png') repeat;
+                //background: url('images/bg-b1.png') repeat;
+                background: @color-eden;
                 color: #eee;
             }
         }
@@ -184,6 +208,7 @@ body {
     letter-spacing: 2px;
     white-space: nowrap;
     .info {
+        font-weight: 500;
         a {
             text-decoration: none;
             &:link, &:visited {
@@ -207,7 +232,7 @@ body {
     left: 0;
     width: @h;
     height: @h;
-    background: url('images/map.png') no-repeat center;
+    background: url('images/map1.png') no-repeat center;
     background-size: @w @h;
     border: 0;
 }
@@ -242,23 +267,28 @@ body {
     align-items: center;
     .bd {
         position: relative;
-        width: 700px + 25;
-        height: 500px + 25;
-        padding: 25px 3px 3px 3px;
+        width: 70%;
+        height: 50%;
+        margin: 0 auto;
+        padding: 22px 3px 3px 3px;
         iframe {
-            outline: 8px solid #fff;
+            width: 99%;
+            height: 100%;
+            border: 8px solid #fff;
+            border-radius: 12px;
         }
     }
     .close {
-        @d: 50px;
+        @d: 45px;
         position: absolute;
-        right: 0;
+        right: -23px;
         top: 0;
         display: block;
         border: 0;
         width: @d;
         height: @d;
-        background: url('images/bone.png') no-repeat;
+        background: #fff url('images/close-1.png') no-repeat;
+        border-radius: 50px;
         background-size: @d @d;
         &:before {
             display: block;
@@ -268,7 +298,7 @@ body {
             left: 0;
             width: @d;
             height: @d;
-            background: url('images/bone.png') no-repeat;
+            background: url('images/close-1.png') no-repeat;
             background-size: @d @d;
             transform: rotate(90deg);
         }
@@ -333,7 +363,7 @@ body {
 }
 .footer {
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0 30px;
     line-height: 24px;
     ul {
         font-size: 0;
