@@ -23,7 +23,7 @@ var jsfiles = ['./src/js/script.js'];
 var base64Opts = {
     extensions: ['png', /\.jpg#datauri$/i]
 };
-var outputPath = '../eden-vet.github.io';
+var outputPath = '../azaitw.github.io';
 
 gulp.task('clean-img', function () {
     return gulp.src(outputPath + '/images/**/*', {

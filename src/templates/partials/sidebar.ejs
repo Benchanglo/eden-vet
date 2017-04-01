@@ -1,5 +1,20 @@
 <div class="sidebar">
     <aside>
-        
+        <% for (var i = 0; i < sidebar.length; i += 1) { %>
+            <section>
+                <div class="hd">
+                    <h3><%= sidebar[i].title %></h3>
+                </div>
+                <div class="bd">
+                    <% if (typeof sidebar[i].ul !== 'undefined') { %>
+                    <ul>
+                        <% for (var j = 0; j < sidebar[i].ul.length; j += 1) { %>
+                            <li><%= sidebar[i].ul[j] %></li>
+                        <% } %>
+                    </ul>
+                    <% } %>
+                </div>
+            </section>
+        <% } %>
     </aside>
 </div>

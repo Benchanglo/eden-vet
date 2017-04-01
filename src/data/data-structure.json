@@ -40,7 +40,7 @@
             "description": "eden-vet desc"
         },
         "content": [
-            {"h2": "歡迎來到伊甸動物醫院"},
+            {"h2": "家裏毛小孩的五星級醫院"},
             {"p": "blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah "},
             {"p": "blah blah blah，blah blah blah blah 222"},
             {"p": "blah blah blah，blah blah blah blah 333"},
@@ -48,6 +48,21 @@
             {"p": "blah blah blah，blah blah blah blah 222"},
             {"p": "blah blah blah，blah blah blah blah 333"}
         ]
-        
-    }
+    },
+    "sidebar": [
+        {
+            "title": "專業項目",
+            "ul": [
+                "非犬貓門診",
+                "貓狗內科",
+                "貓狗心臟",
+                "貓狗皮膚",
+                "貓狗腫瘤",
+                "貓狗牙科",
+                "貓狗神經科"
+                
+            ]
+            
+        }
+    ]
 }
