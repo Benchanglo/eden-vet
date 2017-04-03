@@ -329,7 +329,7 @@ body {
 }
 .sidebar {
     display: inline-block;
-    width: 30%;
+    width: 20%;
     vertical-align: top;
     font-size: 16px;
     color: #555;
@@ -341,7 +341,54 @@ body {
         line-height: 32px;
     }
 }
+@domain-height: 32px;
+.people {
+    .content {
+        margin: 0 0 0 5%;
+        width: 75%;
+    }
+    .sidebar {
+        position: relative;
+        margin: 18px 0 0 0;
+        text-align: right;
+        .highlight {
+            display: block;
+            position: absolute;
+            background: @color-eden;
+            height: @domain-height;
+            border-radius: 50px 0 0 50px;
+            width: 100%;
+            transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+        }
+    }
+}
+.domains {
+    position: relative;
+    z-index: 20;
 
+}
+.select-domain {
+    display: block;
+    font-size: 18px;
+    height: @domain-height;
+    line-height: @domain-height;
+    border: 0;
+    background: none;
+    color: @color-eden;
+    padding: 0 10px 0 0;
+    &:hover {
+        color: @color-tiffany;
+    }
+    &.selected {
+        color: #efefef;
+    }
+}
+.people-doc {
+    &.hide {
+        display: none;
+    }
+}
 // smaller desktop or tablet
 @media only screen
     and (min-width : 700px)

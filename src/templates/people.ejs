@@ -13,7 +13,7 @@
     %>
     <% include ./partials/head.ejs %>
     <body>
-        <div class="page">
+        <div class="page people">
             <div class="wrap">
                 <% include ./partials/header.ejs %>
                 <div id="fpHero" class="hero">
@@ -22,18 +22,20 @@
                 <div class="body">
                     <div class="sidebar">
                         <aside>
-                            <ul>
+                            <ul class="domains">
+                                <li><a class="select-domain all" href="">全部團隊成員</a></li>
                             <% for (var i = 0; i < specialties.length; i += 1) { %>
-                                <li><button class="select-domain"><%= specialties[i]%></button></li>
+                                <li><a class="select-domain" href=""><%= specialties[i]%></a></li>
                             <% } %>
                             </ul>
+                            <div class="highlight"></div>
                         </aside>
                     </div>
                     <div class="content">
                         <main>
-                            <ul class="people">
+                            <ul>
                                 <% for (var i = 0; i < people.content.length; i += 1) {%>
-                                    <li class="doc doc-<%= i %>">
+                                    <li class="people-doc">
                                         <div class="hd">
                                             <h2><%= people.content[i].name %></h2>
                                             <ul class="domain">
@@ -54,7 +56,6 @@
                             </ul>
                         </main>
                     </div>
-                    <% include ./partials/sidebar.ejs %>
                 </div>
                 <% include ./partials/footer.ejs %>
             </div>
