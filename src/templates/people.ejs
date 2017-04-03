@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <%
+        var page = people;
+        var pageName = 'people';
+        var peopleWithSpecialties = [];
+
+        for (var i = 0; i < people.content.length; i += 1) {
+            peopleWithSpecialties.push({
+                specialties: people.content[i].specialties
+            });
+        }
+    %>
+    <% include ./partials/head.ejs %>
+    <body>
+        <div class="page">
+            <div class="wrap">
+                <% include ./partials/header.ejs %>
+                <div id="fpHero" class="hero">
+                    <img src="./images/samples/2.jpg" />
+                </div>
+                <div class="body">
+                    <div class="sidebar">
+                        <aside>
+                            <ul>
+                            <% for (var i = 0; i < specialties.length; i += 1) { %>
+                                <li><button class="select-domain"><%= specialties[i]%></button></li>
+                            <% } %>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="content">
+                        <main>
+                            <ul class="people">
+                                <% for (var i = 0; i < people.content.length; i += 1) {%>
+                                    <li class="doc doc-<%= i %>">
+                                        <div class="hd">
+                                            <h2><%= people.content[i].name %></h2>
+                                            <ul class="domain">
+                                                <% for (var j = 0; j < people.content[i].specialties.length; j += 1) { %>
+                                                    <li><%= people.content[i].specialties[j] %></li>
+                                                <% } %>
+                                            </ul>
+                                        </div>
+                                        <div class="bd">
+                                            <ul>
+                                                <% for (var j = 0; j < people.content[i].resume.length; j += 1) { %>
+                                                    <li><%= people.content[i].resume[j] %></li>
+                                                <% } %>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </main>
+                    </div>
+                    <% include ./partials/sidebar.ejs %>
+                </div>
+                <% include ./partials/footer.ejs %>
+            </div>
+        </div>
+        <% include ./partials/map.ejs %>
+    </body>
+    <script>var peopleCategory = <%- JSON.stringify(peopleWithSpecialties); %></script>
+    <script src="./script.js" inline></script>
+</html>
