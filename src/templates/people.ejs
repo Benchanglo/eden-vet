@@ -3,11 +3,11 @@
     <%
         var page = people;
         var pageName = 'people';
-        var peopleWithSpecialties = [];
+        var peopleWithdomains = [];
 
         for (var i = 0; i < people.content.length; i += 1) {
-            peopleWithSpecialties.push({
-                specialties: people.content[i].specialties
+            peopleWithdomains.push({
+                domains: people.content[i].domains
             });
         }
     %>
@@ -17,15 +17,17 @@
             <div class="wrap">
                 <% include ./partials/header.ejs %>
                 <div id="fpHero" class="hero">
-                    <img src="./images/samples/2.jpg" />
+                    <% for (var i = 0; i < people.hero.length; i += 1) { %>
+                        <img src="<%= people.hero[i] %>" />
+                    <% } %>
                 </div>
                 <div class="body">
                     <div class="sidebar">
                         <aside>
                             <ul class="domains">
                                 <li><a class="select-domain all" href="">全部團隊成員</a></li>
-                            <% for (var i = 0; i < specialties.length; i += 1) { %>
-                                <li><a class="select-domain" href=""><%= specialties[i]%></a></li>
+                            <% for (var i = 0; i < domains.length; i += 1) { %>
+                                <li><a class="select-domain" href=""><%= domains[i]%></a></li>
                             <% } %>
                             </ul>
                             <div class="highlight"></div>
@@ -35,12 +37,15 @@
                         <main>
                             <ul>
                                 <% for (var i = 0; i < people.content.length; i += 1) {%>
-                                    <li class="people-doc">
+                                    <li class="people-doc Cf">
+                                        <div class="pic">
+                                            <img src="<%= people.content[i].image %>" />
+                                        </div>
                                         <div class="hd">
                                             <h2><%= people.content[i].name %></h2>
                                             <ul class="domain">
-                                                <% for (var j = 0; j < people.content[i].specialties.length; j += 1) { %>
-                                                    <li><%= people.content[i].specialties[j] %></li>
+                                                <% for (var j = 0; j < people.content[i].domains.length; j += 1) { %>
+                                                    <li><%= people.content[i].domains[j] %></li>
                                                 <% } %>
                                             </ul>
                                         </div>
@@ -62,6 +67,6 @@
         </div>
         <% include ./partials/map.ejs %>
     </body>
-    <script>var peopleCategory = <%- JSON.stringify(peopleWithSpecialties); %></script>
+    <script>var peopleCategory = <%- JSON.stringify(peopleWithdomains); %></script>
     <script src="./script.js" inline></script>
 </html>

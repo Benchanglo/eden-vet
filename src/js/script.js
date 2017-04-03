@@ -14,6 +14,7 @@
     var highlight;
     var selectedDomain = 0;
     var doctors;
+    var doctorsClassNameOrg;
     var selectDomain = function (index) {
         var i;
         var domainName = domainBtns[index].innerText;
@@ -46,20 +47,20 @@
 
         if (category === 'all') {
             for (i = 0; i < doctors.length; i += 1) {
-                doctors[i].className = 'people-doc';
+                doctors[i].className = doctorsClassNameOrg;
             }
         } else {
             for (i = 0; i < peopleCategory.length; i += 1) {
                 found = false;
-                for (j = 0; j < peopleCategory[i].specialties.length; j += 1) {
-                    if (peopleCategory[i].specialties[j] === category) {
+                for (j = 0; j < peopleCategory[i].domains.length; j += 1) {
+                    if (peopleCategory[i].domains[j] === category) {
                         found = true;
                     }
                 }
                 if (found) {
-                    doctors[i].className = doctors[i].className = 'people-doc';
+                    doctors[i].className = doctors[i].className = doctorsClassNameOrg;
                 } else {
-                    doctors[i].className = 'people-doc hide';
+                    doctors[i].className = doctorsClassNameOrg + ' hide';
                 }
             }
         }
@@ -79,6 +80,7 @@
         domainBtns[selectedDomain].className += ' selected';
         highlight.style.top = 0;
         doctors = document.getElementsByClassName('people-doc');
+        doctorsClassNameOrg = doctors[0].className;
         domainHeight = domainBtns[0].offsetHeight;
     }
 })();
