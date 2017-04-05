@@ -136,6 +136,37 @@ body {
     94.4% {opacity: 1;}
     100% {opacity: 0;}
 }
+
+@keyframes four-1 {
+    0% {opacity: 1;}
+    20% {opacity: 1;}
+    25% {opacity: 0;}
+    95% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes four-2 {
+    0% {opacity: 0;}
+    20% {opacity: 0;}
+    25% {opacity: 1;}
+    45% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes four-3 {
+    0% {opacity: 0;}
+    45% {opacity: 0;}
+    50% {opacity: 1;}
+    70% {opacity: 1;}
+    75% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes four-4 {
+    0% {opacity: 0;}
+    70% {opacity: 0;}
+    75% {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0;}
+}
 .hero {
     position: relative;
     overflow: hidden;
@@ -166,11 +197,22 @@ body {
             }
         }
     }
-    &.three {
-        
-    }
-    &.four {
-        
+    &.imgs-4 {
+        @duration: 32s;
+        img {
+            &:nth-child(1) {
+                animation: four-1 @duration linear infinite;
+            }
+            &:nth-child(2) {
+                animation: four-2 @duration linear infinite;
+            }
+            &:nth-child(3) {
+                animation: four-3 @duration linear infinite;
+            }
+            &:nth-child(4) {
+                animation: four-4 @duration linear infinite;
+            }
+        }
     }
     img {
         position: absolute;
