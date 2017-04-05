@@ -16,11 +16,7 @@
         <div class="page people">
             <div class="wrap">
                 <% include ./partials/header.ejs %>
-                <div id="fpHero" class="hero">
-                    <% for (var i = 0; i < people.hero.length; i += 1) { %>
-                        <img src="<%= people.hero[i] %>" />
-                    <% } %>
-                </div>
+                <% include ./partials/hero.ejs %>
                 <div class="body">
                     <div class="sidebar">
                         <aside>

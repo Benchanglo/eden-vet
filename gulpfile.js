@@ -19,7 +19,8 @@ var uglify = require('gulp-uglify');
 var templateFiles = [
     './src/templates/index.ejs',
     './src/templates/service.ejs',
-    './src/templates/people.ejs'
+    './src/templates/people.ejs',
+    './src/templates/schedule.ejs',
 ];
 var jsfiles = ['./src/js/script.js'];
 var base64Opts = {

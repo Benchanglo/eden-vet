@@ -39,14 +39,12 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護",
             "description": "eden-vet desc"
         },
+        "hero": ["./images/samples/1.jpg"],
         "content": [
             {"h2": "毛小孩的五星級照護"},
-            {"p": "blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah blah blah blah，blah blah blah blah "},
-            {"p": "blah blah blah，blah blah blah blah 222"},
-            {"p": "blah blah blah，blah blah blah blah 333"},
-            {"h2": "第二段"},
-            {"p": "blah blah blah，blah blah blah blah 222"},
-            {"p": "blah blah blah，blah blah blah blah 333"}
+            {"p": "伊甸動物醫院成立的理念，是提供毛小孩最完善的治療與休養環境，希望在我們的悉心照護下，大家家裡的寶貝可以迅速恢復健康。"},
+            {"p": "伊甸動物醫院延攬學有專才、經驗豐富的各科別醫師們，成立國內少數擁有專業分科門診的醫院，希望為各位家裡的毛小孩提供最健全完善的醫療品質。"},
+            {"p": "伊甸動物醫院也提供夜間急診及24小時住院照護，每晚都有急診及住院 醫師駐院留守，能為寵物們提供全天候的照護。"}
         ]
     },
     "service": {
@@ -54,6 +52,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 服務項目",
             "description": "eden-vet desc"
         },
+        "hero": ["./images/samples/2.jpg"],
         "content": [
             {"h2": "24小時急診加護"},
             {"p": "為了讓您的寶貝能受到更完善的照護，伊甸動物醫院也加入了「24小時急診加護」的行列。每晚都有安排急診與住院醫師駐守待命，兼顧急診及住院的病患。"},
@@ -69,7 +68,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 服務項目",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/16179.jpg"],
+        "hero": ["./images/16179.jpg", "./images/15884.jpg", "./images/16075.jpg"],
         "content": [
             {
                 "name": "侯佳君 醫師",
@@ -270,13 +269,20 @@
             }
         ]
     },
+    "schedule": {
+        "head": {
+            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 門診時間",
+            "description": "eden-vet desc"
+        },
+        "hero": ["./images/samples/1.jpg"]
+    },
     "sidebar": [
         {
             "title": "本院特色",
             "ul": [
                 "24小時急診",
                 "非犬貓門診",
-                "犬貓內外科"
+                "內外科專科"
                 
             ]
             

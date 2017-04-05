@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <% var page = schedule; var pageName = 'schedule'; %>
+    <% include ./partials/head.ejs %>
+    <body>
+        <div class="page">
+            <div class="wrap">
+                <% include ./partials/header.ejs %>
+                <% include ./partials/hero.ejs %>
+                <div class="body">
+                    <div class="content">
+                        <main>
+                            <iframe class="calendar" src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=800&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=en.taiwan%23holiday%40group.v.calendar.google.com&amp;color=%232952A3&amp;src=qrjvf8vspf6d8rvj3e0h5v93q8%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=Asia%2FTaipei" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+                        </main>
+                    </div>
+                    <% include ./partials/sidebar.ejs %>
+                </div>
+                <% include ./partials/footer.ejs %>
+            </div>
+        </div>
+        <% include ./partials/map.ejs %>
+    </body>
+    <script src="./script.js" inline></script>
+</html>
