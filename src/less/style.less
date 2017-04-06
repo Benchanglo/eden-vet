@@ -553,6 +553,7 @@ body {
     }
     .bd {
         font-size: 15px;
+        margin: 0 0 0 220px;
     }
     &.hide {
         display: none;
@@ -592,6 +593,15 @@ body {
     .hero {
         width: 92%;
         height: 330px;
+    }
+    .people {
+        .people-doc {
+            .pic {
+                img {
+                    width: 160px;
+                }
+            }
+        }
     }
 }
 
@@ -647,15 +657,45 @@ body {
         left: -150px;
         bottom: 18px;
     }
-    .body {
-        width: 74%;
-    }
     .hero {
         width: 90%;
         height: 260px;
     }
+    .body {
+        top: -10px;
+        width: 76%;
+    }
     .footer {
         width: 90%;
+    }
+    .people {
+        .sidebar {
+            .select-domain {
+                font-size: 16px;
+            }
+        }
+        .content {
+            margin: 0;
+            width: 80%;
+            font-size: 14px;
+            line-height: 22px;
+            li {
+                margin: 0 0 10px 0;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+        .people-doc {
+            .bd {
+                margin: 0 0 0 180px;
+            }
+            .pic {
+                img {
+                    width: 140px;
+                }
+            }
+        }
     }
 }
 @media only screen
@@ -684,6 +724,9 @@ body {
                     font-size: 14px;
                     padding: 8px 0;
                 }
+            }
+            &:after {
+                height: 2px;
             }
         }
         .title {
@@ -738,8 +781,8 @@ body {
             display: none;
         }
         .body {
-            width: 78%;
-            padding: 20px;
+            width: 88%;
+            padding: 5px;
             top: -10px;
         }
         .content, .sidebar {
@@ -758,6 +801,59 @@ body {
                 border-bottom: 1px solid #ccc;
                 padding: 0 0 10px 0;
                 margin: 0 0 15px 0;
+            }
+        }
+        .people {
+            .sidebar {
+                width: 100%;
+                border-bottom: 1px solid #ddd;
+                margin: 8px 0;
+                .select-domain {
+                    font-size: 15px;
+                    display: block;
+                    width: 100%;
+                    padding: 0;
+                    &.selected {
+                        background: @color-eden;
+                        border-radius: 12px;
+                    }
+                }
+                .domains {
+                    text-align: left;
+                    li {
+                        display: inline-block;
+                        width: 25%;
+                        margin: 0 0 5px 0;
+                        text-align: center;
+                    }
+                }
+                .highlight {
+                    display: none;
+                }
+            }
+            .content {
+                width: 96%;
+                margin: 0 auto;
+                line-height: 22px;
+                .people-doc {
+                    .bd {
+                        font-size: 14px;
+                        margin: 0;
+                    }
+                    li {
+                        margin: 0 0 10px 0;
+                    }
+                    h2 {
+                        font-size: 18px;
+                    }
+                    .pic {
+                        float: right;
+                        margin: 10px 0 0 10px;
+                        img {
+                            width: 120px;
+                        }
+                    }
+                }
             }
         }
 }
