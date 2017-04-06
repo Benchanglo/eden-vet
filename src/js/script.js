@@ -1,6 +1,6 @@
 (function () {
     var mapLink = document.getElementsByClassName('mapLink')[0];
-    var mapCloseBtn = document.querySelector('.mapOverlay .close')
+    var mapCloseBtn = document.querySelector('.mapOverlay .close');
     var domainBtns = document.getElementsByClassName('select-domain');
     var toggleMap = function (target, className) {
         if (target.className.indexOf(className) < 0) {

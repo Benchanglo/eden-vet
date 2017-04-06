@@ -70,8 +70,9 @@ body {
     background: url('images/logo-1.png') no-repeat 10px 50px;
     background-size: @logoW @logoH;
     position: relative;
-    height: 132px;
+    height: @logoH + 32px;
     max-width: @pageW;
+    width: 90%;
     margin: 0 auto;
     padding: 50px 0 0 0;
     vertical-align: top;
@@ -87,7 +88,7 @@ body {
     position: relative;
     top: -3px;
     background: #fff;
-    width: @pageW - 60;
+    max-width: @pageW - 60;
     margin: 0 auto;
     //box-shadow: #777 0 1px 4px;
     //border: 3px solid @color-tiffany;
@@ -97,7 +98,19 @@ body {
 }
 .footer {
     width: 100%;
-    height: 50px;
+    min-height: 50px;
+    text-align: center;
+    margin: 20px auto;
+    line-height: 24px;
+    ul {
+        font-size: 0;
+    }
+    li {
+        display: inline-block;
+        font-size: 15px;
+        color: #777;
+        margin: 0 10px;
+    }
 }
 .wrap {
     position: relative;
@@ -170,6 +183,7 @@ body {
 .hero {
     position: relative;
     overflow: hidden;
+    width: 96%;
     height: 400px;
     margin: 0 auto;
     z-index: 15;
@@ -225,8 +239,8 @@ body {
 .nav {
     position: absolute;
     top: 0;
-    width: @pageW - 40;
-    left: 20px;
+    left: 0;
+    width: 100%;
     //border-bottom: 3px solid @color-eden;
     &:after {
         position: absolute;
@@ -245,16 +259,19 @@ body {
         justify-content: center;
     }
     li {
-        font-size: 0;
+        width: 18%;
+        position: relative;
         a {
+            width: 100%;
             margin: 3px 0 0 0;
-            padding: 6px 48px 8px 48px;
+            padding: 6px 0 8px 0;
             font-size: 18px;
             letter-spacing: 2px;
             border-radius: 12px 12px 0 0;
             text-decoration: none;
             display: block;
             white-space: nowrap;
+            text-align: center;
             &:link, &:visited, &:active {
                 color: #555;
             }
@@ -278,11 +295,12 @@ body {
     position: relative;
     display: inline-block;
     vertical-align: bottom;
-    height: @logoH;
-    width: 70%;
+    height: @logoH + 4;
+    line-height: 28px;
+    width: 75%;
     .name {
         position: absolute;
-        top: 80px;
+        bottom: 0;
         left: 23px;
         display: block;
         font-size: 17px;
@@ -297,12 +315,20 @@ body {
         font-weight: 300;
         color: #666;
         text-align: right;
+        position: relative;
+        &:after {
+            display: inline;
+            content: "：";
+            
+        };
     }
 }
 .phone {
+    position: relative;
     display: inline-block;
     vertical-align: top;
-    width: 30%;
+    height: @logoH + 4;
+    line-height: 28px;
     font-weight: 300;
     font-size: @taglineSize;
     color: #666;
@@ -341,18 +367,27 @@ body {
     position: absolute;
     font-size: 16px;
     letter-spacing: 1px;
-    bottom: 32px;
-    right: 30px;
+    bottom: 28px;
+    left: -145px;
     padding: 2px 100px 0 32px;
     white-space: nowrap;
     color: #777;
     .note {
         margin: 0 0 0 20px;
         position: absolute;
+        top: 2px;
         right: 0;
         white-space: nowrap;
     }
+    .info-mobile {
+        display: none;
+        text-decoration: none;
+        &:link, &:visited, &:hover, &:active {
+            color: @color-tiffany
+        }
+    }
 }
+
 .mapOverlay {
     position: absolute;
     display: none;
@@ -430,7 +465,7 @@ body {
 }
 .sidebar {
     display: inline-block;
-    width: 20%;
+    width: 30%;
     vertical-align: top;
     font-size: 16px;
     color: #555;
@@ -449,6 +484,7 @@ body {
         width: 75%;
     }
     .sidebar {
+        width: 20%;
         position: relative;
         margin: 8px 0 0 0;
         text-align: right;
@@ -528,75 +564,200 @@ body {
 }
 // smaller desktop or tablet
 @media only screen
-    and (min-width : 700px)
+    and (min-width : 740px)
     and (max-width : 960px) {
     .title {
-        width: 60%;
-        .tagline {
-            font-size: 20px;
-        }
+        width: 70%;
     }
     .phone {
-        width: 40%;
-        font-size: 20px;
     }
     .nav {
-        width: 95%;
         li {
             a {
-                padding: 8px 24px;
-                font-size: 15px;
+                font-size: 16px;
             }
         }
     }
     .body {
         width: 80%;
     }
-}
-.footer {
-    text-align: center;
-    margin: 20px 0 30px;
-    line-height: 24px;
-    ul {
-        font-size: 0;
+    .address {
+        .info-pc {
+            display: block;
+        }
+        .info-mobile {
+            display: none;
+        }
     }
-    li {
-        display: inline-block;
-        font-size: 15px;
-        color: #777;
-        margin: 0 10px;
-        
+    .hero {
+        width: 92%;
+        height: 330px;
     }
 }
-
 
 // mobile
 @media only screen
+    and (min-width : 480px)
+    and (max-width : 740px) {
+    @logoH: 80px;
+    .page {
+        @bannerH: 230px;
+        &:before {
+            top: 180px;
+            height: @bannerH;
+            background-size: 200px * (230/280) @bannerH;
+        }
+        &:after {
+            top: 180px;
+            height: @bannerH;
+        }
+    }
+    .header {
+        width: 90%;
+        height: @logoH + 42;
+        background-size: 120px @logoH;
+        padding: 40px 0 0 0;
+    }
+    .nav {
+        li {
+            width: 24%;
+            a {
+                font-size: 14px;
+                padding: 8px 0;
+            }
+        }
+    }
+    .title {
+        width: 65%;
+        height: @logoH + 12;
+        .name {
+            font-size: 15px;
+            left: 15px;
+        }
+        .tagline {
+            font-size: 20px;
+        }
+    }
+    .phone {
+        height: @logoH + 12;
+        font-size: 20px;
+    }
+    .address {
+        font-size: 14px;
+        left: -150px;
+        bottom: 18px;
+    }
+    .body {
+        width: 74%;
+    }
+    .hero {
+        width: 90%;
+        height: 260px;
+    }
+    .footer {
+        width: 90%;
+    }
+}
+@media only screen
     and (min-width : 320px)
-    and (max-width : 700px) {
+    and (max-width : 480px) {
+        @logoH: 70px;
+        .page {
+            @bannerH: 200px;
+            &:before, &:after {
+                display: none;
+            }
+        }
         .header {
-            background-size: 100px 66px;
+            width: 100%;
+            height: @logoH + 42;
+            background-size: 105px @logoH;
+            padding: 40px 0 0 0;
+            &:before {
+                height: 10px;
+            }
         }
         .nav {
-            width: 95%;
             li {
+                width: 24%;
                 a {
-                    padding: 8px 24px;
-                    font-size: 15px;
+                    font-size: 14px;
+                    padding: 8px 0;
                 }
             }
         }
         .title {
-            width: 50%;
+            width: 95%;
+            height: @logoH + 26;
+            .name {
+                font-size: 13px;
+                left: 13px;
+            }
             .tagline {
-                font-size: 15px;
+                font-size: 18px;
+                &:after {
+                    display: none;
+                }
             }
         }
         .phone {
-            width: 50%;
-            font-size: 15px;
+            position: absolute;
+            top: 85px;
+            left: 0;
+            width: 95%;
+            height: 60px;
+            text-align: right;
+            font-size: 18px;
+            display: block;
+        }
+        .address {
+            font-size: 13px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: right;
+            padding: 0;
+            .note {
+                display: none;
+            }
+            .info-pc {
+                display: none;
+            }
+            .info-mobile {
+                display: block;
+            }
+        }
+        .hero {
+            height: 180px;
+            img {
+                left: -5%;
+                width: 110%;
+            }
+        }
+        .mapLink {
+            display: none;
         }
         .body {
-            width: 80%;
+            width: 78%;
+            padding: 20px;
+            top: -10px;
+        }
+        .content, .sidebar {
+            display: block;
+            width: 100%;
+        }
+        .content {
+            h2 {
+                font-size: 20px;
+            }
+            line-height: 30px;
+        }
+        .footer {
+            width: 90%;
+            .line1 {
+                border-bottom: 1px solid #ccc;
+                padding: 0 0 10px 0;
+                margin: 0 0 15px 0;
+            }
         }
 }
