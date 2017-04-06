@@ -26,7 +26,7 @@ var jsfiles = ['./src/js/script.js'];
 var base64Opts = {
     extensions: ['png', /\.jpg#datauri$/i]
 };
-var outputPath = '../azaitw.github.io';
+var outputPath = '../azaitw.github.io/rev1';
 
 gulp.task('clean-img', function () {
     return gulp.src(outputPath + '/images/**/*', {
