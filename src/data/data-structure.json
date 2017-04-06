@@ -5,22 +5,22 @@
     },
     "nav": [
         {
-            "url": "/",
+            "url": "./",
             "page": "index",
             "name": "首頁"
         },
         {
-            "url": "/service.html",
+            "url": "./service.html",
             "page": "service",
             "name": "服務項目"
         },
         {
-            "url": "/people.html",
+            "url": "./people.html",
             "page": "people",
             "name": "醫師團隊"
         },
         {
-            "url": "/schedule.html",
+            "url": "./schedule.html",
             "page": "schedule",
             "name": "門診時間"
         }
