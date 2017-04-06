@@ -20,19 +20,20 @@
             <span class="tagline"><%= h1.tagline %></span>
         </h1>
         <div class="phone">
-            <span class="label"><%= phone.label %></span>
+            <span class="label"><span class="notxt"><%= phone.label %></span></span>
             <span class="info"><a href="tel:<%= phone.label %>"><%= phone.info %></a></span>
-        </div>
-        <div class="address">
-            <address>
-                <span class="label notxt"><%= address.label %></span>
-                <button class="mapLink"><span class="notxt">打開地圖</span></button>
-                <span class="info">
-                    <!-- iphone: http://maps.apple.com/?q=台北市中山區北安路554巷33號 -->
-                    <%= address.info %></a>
-                </span>
-                <span class="note"><%= address.note %></span>
-            </address>
+            <div class="address">
+                <address>
+                    <span class="label notxt"><%= address.label %></span>
+                    <button class="mapLink"><span class="notxt">打開地圖</span></button>
+                    <span class="info-pc">
+                        <!-- iphone: http://maps.apple.com/?q=台北市中山區北安路554巷33號 -->
+                        <%= address.info %></a>
+                    </span>
+                    <a class="info-mobile" href="https://www.google.com/maps/?q=place_id:ChIJFwTtdQ-sQjQRDdUv6eFR9Zo&center=25.0801111,121.5499876&zoom=16.25&language=zh-TW"><%= address.info %></a></a>
+                    <span class="note"><%= address.note %></span>
+                </address>
+            </div>
         </div>
     </header>
 </div>
