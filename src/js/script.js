@@ -70,7 +70,8 @@
     mapLink[0].addEventListener('click', function () {
         toggleMap(document.body, 'overlay');
     });
-    infoMobile[0].addEventListener('click', function () {
+    infoMobile[0].addEventListener('click', function (e) {
+        e.preventDefault();
         toggleMap(document.body, 'overlay');
     });
     mapCloseBtn.addEventListener('click', function () {
