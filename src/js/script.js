@@ -1,5 +1,6 @@
 (function () {
-    var mapLink = document.getElementsByClassName('mapLink')[0];
+    var mapLink = document.getElementsByClassName('mapLink');
+    var infoMobile = document.getElementsByClassName('info-mobile');
     var mapCloseBtn = document.querySelector('.mapOverlay .close');
     var domainBtns = document.getElementsByClassName('select-domain');
     var toggleMap = function (target, className) {
@@ -66,7 +67,10 @@
         }
     };
 
-    mapLink.addEventListener('click', function () {
+    mapLink[0].addEventListener('click', function () {
+        toggleMap(document.body, 'overlay');
+    });
+    infoMobile[0].addEventListener('click', function () {
         toggleMap(document.body, 'overlay');
     });
     mapCloseBtn.addEventListener('click', function () {
