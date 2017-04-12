@@ -14,6 +14,7 @@
         "lint": "gulp lint"
     },
     "dependencies": {
+        "critical": "0.8.4",
         "gulp": "3.8.10",
         "gulp-base64": "0.1.2",
         "gulp-clean": "*",

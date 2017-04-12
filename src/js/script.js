@@ -84,7 +84,16 @@
             bindSelectBtnEvent(domainBtns[i], i);
         }
     };
+    var appendCSS = function (filePath) {
+        var style = document.createElement('link');
+        var head = document.getElementsByTagName('head')[0];
 
+        style.rel = 'stylesheet';
+        style.href = filePath;
+        head.appendChild(style);
+    };
+
+    appendCSS('./production.css');
     bindMapToggle();
     domainBtns = document.getElementsByClassName('select-domain');
     if (domainBtns.length > 0) {

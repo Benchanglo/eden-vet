@@ -3,6 +3,7 @@
 var base64 = require('gulp-base64');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
+var critical = require('critical');
 var ejs = require('gulp-ejs');
 var fs = require('fs');
 var gulp = require('gulp');
@@ -40,7 +41,7 @@ gulp.task('clean-img', function () {
     .pipe(clean({
         force: true
     }));
-})
+});
 gulp.task('images', ['clean-img'], function () {
     return gulp.src('./src/images/**/*')
     .pipe(gulp.dest(path.join(outputPath, '/images')));
@@ -127,6 +128,25 @@ gulp.task('build', ['template', 'css', 'js'], function () {
         swallowErrors: true
     };
 
+    critical.generate({
+      base: 'src/rendered',
+      src: 'index.html',
+      css: 'src/rendered/production.css',
+      dimensions: [{
+        width: 320,
+        height: 480
+      },{
+        width: 480,
+        height: 500
+      },{
+        width: 739,
+        height: 500
+      }],
+      dest: 'critical.css',
+      minify: true,
+      extract: false,
+      ignore: ['@font-face',/url\(/]
+    });
     return gulp.src('./src/rendered/*.html')
 //    .pipe(base64(base64Opts))
     .pipe(inlinesource(optsInline))
