@@ -146,12 +146,13 @@ gulp.task('build', ['template', 'css', 'js'], function () {
       minify: true,
       extract: false,
       ignore: ['@font-face',/url\(/]
+    }, function () {
+        return gulp.src('./src/rendered/*.html')
+    //    .pipe(base64(base64Opts))
+        .pipe(inlinesource(optsInline))
+        .pipe(minifyHTML(optsHtml))
+        .pipe(gulp.dest(outputPath));
     });
-    return gulp.src('./src/rendered/*.html')
-//    .pipe(base64(base64Opts))
-    .pipe(inlinesource(optsInline))
-    .pipe(minifyHTML(optsHtml))
-    .pipe(gulp.dest(outputPath));
 });
 
 // Validate all JS files

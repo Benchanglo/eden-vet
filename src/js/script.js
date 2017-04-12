@@ -1,7 +1,7 @@
 (function () {
     var selectedDomain = 0;
     var domainBtns;
-    var domainHeight;
+    var domainHeight = 32;
     var highlight;
     var doctors;
     var doctorsClassNameOrg;
@@ -102,7 +102,7 @@
         domainBtns[selectedDomain].className += ' selected';
         highlight.style.top = 0;
         doctorsClassNameOrg = doctors[0].className;
-        domainHeight = domainBtns[0].offsetHeight;
+        //domainHeight = domainBtns[0].offsetHeight;
         bindSelectDomain();
     }
 })();
