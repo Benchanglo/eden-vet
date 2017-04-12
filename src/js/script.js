@@ -5,7 +5,7 @@
     var highlight;
     var doctors;
     var doctorsClassNameOrg;
-    var pageClass = document.getElementsByClassName('page');
+    var pageClass = document.getElementsByClassName('page')[0];
     var bindMapToggle = function () {
         var toggleMap = function (target, className) {
             if (target.className.indexOf(className) < 0) {
@@ -95,11 +95,9 @@
     };
 
     bindMapToggle();
+    // Apply critical path only in home page
     if (pageClass.className.indexOf('index') > 0) {
-        console.log('index page');
         appendCSS('./production.css');
-    } else {
-        console.log('not index');
     }
     domainBtns = document.getElementsByClassName('select-domain');
     if (domainBtns.length > 0) {
