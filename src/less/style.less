@@ -39,7 +39,7 @@ body {
 .page {
     position: relative;
     //  http://api.thumbr.it/whitenoise-150x150.png?background=ffffff&noise=dddddd&density=15&opacity=50
-    background: url('images/bg2.png') repeat;
+    background: url('../images/bg2.png') repeat;
     z-index: 2;
     &:before {
         display: block;
@@ -48,7 +48,7 @@ body {
         top: 220px;
         width: 100%;
         height: 280px;
-        background: url('images/paws.png') repeat;
+        background: url('../images/paws.png') repeat;
         background-size: 200px 280px;
         z-index: 1;
     }
@@ -61,13 +61,13 @@ body {
         height: 280px;
         // http://www.cssmatic.com/noise-texture
         //background: url('images/whitenoise-150x150.png') repeat;
-        background: url('images/bg-b1.png') repeat;
+        background: url('../images/bg-b1.png') repeat;
         z-index: 0;
         //box-shadow: #777 0 0 1px;
     }
 }
 .header {
-    background: url('images/logo-1.png') no-repeat 10px 50px;
+    background: url('../images/logo-1.png') no-repeat 10px 50px;
     background-size: @logoW @logoH;
     position: relative;
     height: @logoH + 32px;
@@ -310,9 +310,13 @@ body {
         left: 23px;
         display: block;
         font-size: 17px;
-        color: #000;
         letter-spacing: 4px;
         font-weight: 400;
+        padding: 93px 0 0 0;
+        &:link, &:visited, &:hover, &:active {
+            text-decoration: none;
+            color: #000;
+        }
     }
     .tagline {
         display: block;
@@ -365,7 +369,7 @@ body {
     left: 0;
     width: @h;
     height: @h;
-    background: url('images/map1.png') no-repeat center;
+    background: url('../images/map1.png') no-repeat center;
     background-size: @w @h;
     border: 0;
 }
@@ -429,21 +433,9 @@ body {
         border: 0;
         width: @d;
         height: @d;
-        background: #fff url('images/close-1.png') no-repeat;
+        background: #fff url('../images/close-1.png') no-repeat;
         border-radius: 50px;
         background-size: @d @d;
-        &:before {
-            display: block;
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: @d;
-            height: @d;
-            background: url('images/close-1.png') no-repeat;
-            background-size: @d @d;
-            transform: rotate(90deg);
-        }
     }
 }
 .content {
@@ -655,6 +647,7 @@ body {
         .name {
             font-size: 15px;
             left: 15px;
+            padding: 73px 0 0 0;
         }
         .tagline {
             font-size: 20px;
@@ -753,6 +746,7 @@ body {
             .name {
                 font-size: 13px;
                 left: 13px;
+                padding: 63px 0 0 0;
             }
             .tagline {
                 font-size: 18px;

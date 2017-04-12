@@ -23,8 +23,13 @@ var templateFiles = [
     './src/templates/schedule.ejs',
 ];
 var jsfiles = ['./src/js/script.js'];
+/*
 var base64Opts = {
     extensions: ['png', /\.jpg#datauri$/i]
+};
+*/
+var base64Opts = {
+    extensions: ['png']
 };
 var outputPath = '../azaitw.github.io';
 
@@ -123,7 +128,7 @@ gulp.task('build', ['template', 'css', 'js'], function () {
     };
 
     return gulp.src('./src/rendered/*.html')
-    .pipe(base64(base64Opts))
+//    .pipe(base64(base64Opts))
     .pipe(inlinesource(optsInline))
     .pipe(minifyHTML(optsHtml))
     .pipe(gulp.dest(outputPath));
