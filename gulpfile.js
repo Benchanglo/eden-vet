@@ -33,6 +33,7 @@ var base64Opts = {
     extensions: ['png']
 };
 var outputPath = '../azaitw.github.io';
+//var outputPath = '../eden-vet.github.io';
 
 gulp.task('clean-img', function () {
     return gulp.src(outputPath + '/images/**/*', {
@@ -140,7 +141,7 @@ gulp.task('build', ['template', 'css', 'js'], function () {
         height: 500
       },{
         width: 739,
-        height: 500
+        height: 1020
       }],
       dest: 'critical.css',
       minify: true,
