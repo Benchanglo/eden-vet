@@ -39,7 +39,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/samples/1.jpg"],
+        "hero": ["./images/16214.jpg", "./images/front.jpg", "./images/treatment.jpg"],
         "content": [
             {"h2": "毛小孩的五星級照護"},
             {"p": "伊甸動物醫院成立的理念，是提供毛小孩最完善的治療與休養環境，希望在我們的悉心照護下，大家家裡的寶貝可以迅速恢復健康。"},
@@ -52,7 +52,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 服務項目",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/16214.jpg"],
+        "hero": ["./images/facilities1.jpg"],
         "content": [
             {"h2": "24小時急診加護"},
             {"p": "為了讓您的寶貝能受到更完善的照護，伊甸動物醫院也加入了「24小時急診加護」的行列。每晚都有安排急診與住院醫師駐守待命，兼顧急診及住院的病患。"},
@@ -98,7 +98,7 @@
             {
                 "name": "郭璇 醫師",
                 "domains": ["一般內科", "腫瘤科"],
-                "image": "./images/15257.jpg",
+                "image": "./images/blank.jpg",
                 "resume": [
                     "前台灣大學附設動物醫院腫瘤內科門診醫師",
                     "台大臨床動物醫學研究所碩士",
@@ -132,7 +132,7 @@
             },
             {
                 "name": "陳彥和 醫師",
-                "domains": ["一般內科"],
+                "domains": ["一般內科", "牙科"],
                 "image": "./images/blank.jpg",
                 "resume": [
                     "台灣大學獸醫學士",
@@ -219,7 +219,7 @@
             {
                 "name": "張鈺偵 醫師",
                 "domains": ["一般外科", "眼科"],
-                "image": "./images/blank.jpg",
+                "image": "./images/15257.jpg",
                 "resume": [
                     "台大獸醫系畢業",
                     "台大獸醫研究所臨床組畢業",
@@ -274,7 +274,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 門診時間",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/samples/1.jpg"]
+        "hero": ["images/office.jpg"]
     },
     "sidebar": [
         {
