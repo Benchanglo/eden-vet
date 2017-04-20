@@ -1,56 +1,16 @@
 # eden-vet  [![Build Status](http://azai.synology.me:33333/buildStatus/icon?job=eden-vet)](http://azai.synology.me:33333/job/eden-vet/)
 
 
-This is Eden-vet web frontend builder. The purpose is to automate repetitive tasks and make code update more agile.
+Eden-vet 網站原始碼。更新後會自動組建頁面並上傳。
 
-Installation
+上傳班表
 =================
-Before you start, you need to install Node.js on your computer. Refer to the website for instructions:
+進入資料夾 /src/images，或直接輸入網址：
 
-    'https://nodejs.org/'
+    'https://github.com/eden-vet/eden-vet/tree/master/src/images'
 
-When installed, clone this repository to you computer, navigate into its directory, and execute this command to install packages, and you are ready to start!
+將新的班表取名為"eden-calendar.jpg"，按右上角[Upload files]按鈕，並將班表圖片拉到上傳區。
 
-    'npm i'
+請在"Commit changes"裡填入更新說明（例如: 2017 4月份班表）。
 
-
-Development
-=================
-To develop using this builder, you need to do five things:
-
-1. Write html markup in handlebars syntax, and place the source file in /src/templates
-2. Write data for building HTML using Handlebars. This file is /src/data/data-structure.json
-3. Write Javascript and place files in /src/js, update gulpfile to include these JS files in specific loading order
-4. Write CSS and place files in /src/css, update gulpfile to include these CSS files in specific loading order
-5. Regarding images, copy those that you will be using in CSS file into /src/images; and those be used in HTML in /build/images.
-
-Build
-=================
-In Terminal, navigate to this project folder, and execute this command to build files: 
-
-    'npm run build'
-
-Once it's done, you should see the generated HTML in ../gh-pages/index.html.
-
-Code Quality
-=================
-You may run this command to validate your Javascript file:
-
-    `npm run lint`
-
-Update Domain
-=================
-Refer to this doc:
-• http://spector.io/how-to-set-up-github-pages-with-a-custom-domain-on-gandi/
-
-
-Reference
-=================
-• Npm
-  'https://docs.npmjs.com/'
-
-• Handlebars
-  'http://handlebarsjs.com/'
-
-• Gulp
-  'http://gulpjs.com/'
+確認無誤後按下[Commit changes]按鈕，系統會自動組建頁面。本說明頁面上方會有個[build]圖示，顯示為 [build passing]代表組建成功，如顯示為紅色，請洽 azai.tw@gmail.com。
