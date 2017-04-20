@@ -32,7 +32,7 @@ var base64Opts = {
 var base64Opts = {
     extensions: ['png']
 };
-var outputPath = '../azaitw.github.io';
+var outputPath = '../eden-vet.github.io';
 //var outputPath = '../eden-vet.github.io';
 
 gulp.task('clean-img', function () {
@@ -120,6 +120,7 @@ gulp.task('template', ['jsonlint'], function (done) {
         .on('end', done);
     });
 });
+
 gulp.task('build', ['template', 'css', 'js'], function () {
     var optsHtml = {
       conditionals: true,

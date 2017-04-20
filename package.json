@@ -10,7 +10,7 @@
     "keywords": [],
     "main": "server.js",
     "scripts": {
-        "build": "mkdir ./src/rendered; gulp build; rm -rf ./src/rendered",
+        "build": "mkdir ./src/rendered; gulp build",
         "lint": "gulp lint"
     },
     "dependencies": {
