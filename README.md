@@ -1,4 +1,5 @@
-# eden-vet
+# eden-vet  [![Build Status](http://azai.synology.me:33333/buildStatus/icon?job=eden-vet)](http://azai.synology.me:33333/job/eden-vet/)
+
 
 This is Eden-vet web frontend builder. The purpose is to automate repetitive tasks and make code update more agile.
 
