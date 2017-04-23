@@ -74,7 +74,7 @@
             {
                 "name": "侯佳君 醫師",
                 "domains": ["一般內科", "皮膚科"],
-                "image": "./images/blank.jpg",
+                "image": "./images/15122l.jpg",
                 "resume": [
                     "英國愛丁堡大學獸醫學博士",
                     "台大獸醫學學士"
@@ -83,7 +83,7 @@
             {
                 "name": "王臆晴 醫師",
                 "domains": ["一般內科"],
-                "image": "./images/15909.jpg",
+                "image": "./images/15909l.jpg",
                 "resume": [
                     "前台灣大學附設動物醫院檢驗科約聘醫師",
                     "前台灣大學附設動物醫院小動物內科門診醫師",
@@ -110,7 +110,7 @@
             {
                 "name": "洪一平 醫師",
                 "domains": ["一般內科", "腫瘤科"],
-                "image": "./images/15429.jpg",
+                "image": "./images/15429l.jpg",
                 "resume": [
                     "國立中興大學獸醫教學醫院 內科醫師",
                     "日本酪農學園大學獸醫院小動物科短期進修",
@@ -123,7 +123,7 @@
             {
                 "name": "陳慶安 醫師",
                 "domains": ["一般內科"],
-                "image": "./images/15280.jpg",
+                "image": "./images/15280l.jpg",
                 "resume": [
                     "前台大臨床動物醫學研究所暨動物醫院內科住院醫師",
                     "前台大附設動物醫院傳染病門診醫師",
@@ -134,7 +134,7 @@
             {
                 "name": "陳彥和 醫師",
                 "domains": ["一般內科", "牙科"],
-                "image": "./images/blank.jpg",
+                "image": "./images/15686l.jpg",
                 "resume": [
                     "台灣大學獸醫學士",
                     "前沐恩動物醫院住院醫師",
@@ -144,7 +144,7 @@
             {
                 "name": "朱鳳軒 醫師",
                 "domains": ["一般內科"],
-                "image": "./images/16129.jpg",
+                "image": "./images/16129l.jpg",
                 "resume": [
                     "前台大臨床動物醫學研究所暨動物醫院內科住院醫師",
                     "前台大附設動物醫院傳染病門診醫師",
@@ -182,7 +182,7 @@
             {
                 "name": "楊書涵 醫師",
                 "domains": ["一般外科", "牙科"],
-                "image": "./images/16005.jpg",
+                "image": "./images/16005l.jpg",
                 "resume": [
                     "前台灣大學附設動物醫院小動物牙科專門門診醫師",
                     "前台灣大學附設動物醫院小動物一般外科門診醫師",
@@ -196,7 +196,7 @@
             {
                 "name": "張懿人 醫師",
                 "domains": ["一般外科"],
-                "image": "./images/blank.jpg",
+                "image": "./images/15466l.jpg",
                 "resume": [
                     "中興大學獸醫學系臨床組研究所畢業",
                     "中興大學獸醫教學醫院 實習醫師",
@@ -220,7 +220,7 @@
             {
                 "name": "張鈺偵 醫師",
                 "domains": ["一般外科", "眼科"],
-                "image": "./images/15257.jpg",
+                "image": "./images/15257l.jpg",
                 "resume": [
                     "台大獸醫系畢業",
                     "台大獸醫研究所臨床組畢業",
@@ -232,7 +232,7 @@
             {
                 "name": "官苑芃 醫師",
                 "domains": ["非犬貓"],
-                "image": "./images/15830.jpg",
+                "image": "./images/15830l.jpg",
                 "resume": [
                     "台灣大學獸醫系學士",
                     "台大臨床動物醫學研究所碩士",
@@ -273,13 +273,13 @@
             },
             {
                 "name": "施裕家 醫師",
-                "image": "./images/15053.jpg",
+                "image": "./images/15053l.jpg",
                 "domains": ["夜間急診"],
                 "resume": []
             },
             {
                 "name": "劉嘉玲 醫師",
-                "image": "./images/15053.jpg",
+                "image": "./images/blank.jpg",
                 "domains": ["夜間急診"],
                 "resume": []
             }
