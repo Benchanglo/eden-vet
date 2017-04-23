@@ -1,0 +1,27 @@
+<div class="content-overlay">
+    <div class="overlay-bd">
+        <a class="overlay-close"><span class="notxt">關閉</span></a>
+
+        <% for (var i in page.overlay) { %>
+            <% var openSection; %>
+            <div class="overlay-<%= i %>">
+            <% for (var j = 0; j < page.overlay[i].length; j += 1) { %>
+                <% for (var k in page.overlay[i][j]) { %>
+                    <% if (k.indexOf('h') > -1) { %>
+                        <% if (openSection === true) { %>
+                            <% openSection = false; %>
+                            </section>
+                        <% } %>
+                        <% openSection = true; %>
+                        <section>
+                    <% } %>
+                    <<%= k %>>
+                        <%= page.overlay[i][j][k] %>
+                    </<%= k %>>
+                <% } %>
+            <%} %>
+            </div>
+        <% } %>
+
+    </div>
+</div>

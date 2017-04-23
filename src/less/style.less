@@ -64,6 +64,19 @@ body {
         //box-shadow: #777 0 0 1px;
     }
 }
+.content-overlay {
+    display: none;
+    color: #555;
+    font-size: 17px;
+    line-height: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
 .header {
     background: url('../images/logo-1.png') no-repeat 10px 50px;
     background-size: @logoW @logoH;
@@ -409,32 +422,32 @@ body {
     background: rgba(0, 0, 0, 0.3);
     justify-content: center;
     align-items: center;
-    .bd {
-        position: relative;
-        width: 70%;
-        height: 70%;
-        margin: 0 auto;
-        padding: 22px 3px 3px 3px;
-        iframe {
-            width: 99%;
-            height: 100%;
-            border: 8px solid #fff;
-            border-radius: 12px;
-        }
+}
+.overlay-bd {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    margin: 0 auto;
+    padding: 22px 3px 3px 3px;
+    iframe {
+        width: 99%;
+        height: 100%;
+        border: 8px solid #fff;
+        border-radius: 12px;
     }
-    .close {
-        @d: 45px;
-        position: absolute;
-        right: -23px;
-        top: 0;
-        display: block;
-        border: 0;
-        width: @d;
-        height: @d;
-        background: #fff url('../images/close.png') no-repeat;
-        border-radius: 50px;
-        background-size: @d @d;
-    }
+}
+.overlay-close {
+    @d: 45px;
+    position: absolute;
+    right: -23px;
+    top: 0;
+    display: block;
+    border: 0;
+    width: @d;
+    height: @d;
+    background: #fff url('../images/close.png') no-repeat;
+    border-radius: 50px;
+    background-size: @d @d;
 }
 .content {
     display: inline-block;
@@ -474,6 +487,21 @@ body {
     }
     .bd {
         line-height: 32px;
+        margin: 18px 0 0 0;
+    }
+    blockquote {
+        margin: 0;
+        a {
+            &:link, &:visited {
+                color: @color-eden;
+            }
+            &:hover {
+                color: @color-tiffany
+            }
+            &:active {
+                color: @color-eden-dark;
+            }
+        }
     }
 }
 @domain-height: 32px;
