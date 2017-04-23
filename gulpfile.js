@@ -45,9 +45,15 @@ gulp.task('clean-img', function () {
         force: true
     }));
 });
+
+gulp.task('images-min', function () {
+    return gulp.src('./src/images-org/**/*')
+    .pipe(imagemin([imageminGuetzli({quality: 90})]))
+    .pipe(gulp.dest('./src/images'));
+});
+
 gulp.task('images', ['clean-img'], function () {
     return gulp.src('./src/images/**/*')
-    .pipe(imagemin([imageminGuetzli({quality: 90})]))
     .pipe(gulp.dest(path.join(outputPath, '/images')));
 });
 
