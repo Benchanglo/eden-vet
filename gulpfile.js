@@ -7,6 +7,8 @@ var critical = require('critical');
 var ejs = require('gulp-ejs');
 var fs = require('fs');
 var gulp = require('gulp');
+var imagemin = require('gulp-imagemin');
+var imageminGuetzli = require('imagemin-guetzli');
 var inlinesource = require('gulp-inline-source');
 var lint = require('gulp-jshint');
 var jsonlint = require("gulp-jsonlint");
@@ -45,6 +47,7 @@ gulp.task('clean-img', function () {
 });
 gulp.task('images', ['clean-img'], function () {
     return gulp.src('./src/images/**/*')
+    .pipe(imagemin([imageminGuetzli({quality: 90})]))
     .pipe(gulp.dest(path.join(outputPath, '/images')));
 });
 
