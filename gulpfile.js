@@ -46,8 +46,22 @@ gulp.task('clean-img', function () {
     }));
 });
 
-gulp.task('images-min', function () {
-    return gulp.src('./src/images-org/**/*')
+gulp.task('reset-built-img', function () {
+    return gulp.src('./src/images/**/*', {
+        read: false
+    })
+    .pipe(clean({
+        force: true
+    }));
+});
+
+gulp.task('copy-png', ['reset-built-img'], function () {
+    return gulp.src('./src/images-org/**/*.png')
+    .pipe(gulp.dest('./src/images'));
+});
+
+gulp.task('images-min', ['copy-png'], function () {
+    return gulp.src('./src/images-org/**/*.jpg')
     .pipe(imagemin([imageminGuetzli({quality: 90})]))
     .pipe(gulp.dest('./src/images'));
 });

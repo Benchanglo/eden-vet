@@ -11,7 +11,7 @@
     "main": "server.js",
     "scripts": {
         "build": "mkdir ./src/rendered; gulp build",
-        "images": "gulp images-min",
+        "image": "gulp images-min",
         "lint": "gulp lint"
     },
     "dependencies": {
