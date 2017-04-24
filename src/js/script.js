@@ -16,7 +16,7 @@
         };
         var mapLink = document.getElementsByClassName('mapLink');
         var infoMobile = document.getElementsByClassName('info-mobile');
-        var mapCloseBtn = document.querySelector('.mapOverlay .close');
+        var mapCloseBtn = document.querySelector('.mapOverlay .overlay-close');
 
         mapLink[0].addEventListener('click', function () {
             toggleMap(document.body, 'overlay');
