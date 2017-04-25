@@ -198,12 +198,16 @@ gulp.task('build', ['template', 'css', 'js'], function () {
     };
 
     async.mapSeries(pages, function (page, callback) {
+        console.log('Building critical path for page: ', page);
         criticalParams.src = page + '.html';
         criticalParams.dest = page + '.css';
-        critical.generate(criticalParams, function () {
-            callback();
+        critical.generate(criticalParams, function (err, result) {
+            return callback(err, result);
         });
-    }, function () {
+    }, function (err, result) {
+        if (err) {
+            console.log('Building critical path failed: ', err);
+        }
         return gulp.src('./src/rendered/*.html')
     //    .pipe(base64(base64Opts))
         .pipe(inlinesource(optsInline))
