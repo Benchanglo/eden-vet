@@ -5,6 +5,7 @@ var base64 = require('gulp-base64');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var critical = require('critical');
+var deleteLines = require('gulp-delete-lines');
 var ejs = require('gulp-ejs');
 var fs = require('fs');
 var gulp = require('gulp');
@@ -165,6 +166,11 @@ gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
     return gulp.src('./src/rendered/*.html')
 //    .pipe(base64(base64Opts))
 //    .pipe(inlinesource(optsInline))
+    .pipe(deleteLines({
+        'filters': [
+            /<link rel="stylesheet" href=".\/critical.css"/i
+        ]
+    }))
     .pipe(minifyHTML(optsHtml))
     .pipe(gulp.dest(outputPath));
 });
@@ -188,7 +194,7 @@ gulp.task('build', ['template', 'css', 'js'], function () {
           width: 739,
           height: 1020
         }],
-        dest: 'index.css',
+        dest: 'critical.css',
         minify: true,
         extract: false,
         ignore: ['@font-face',/url\(/]
@@ -196,7 +202,7 @@ gulp.task('build', ['template', 'css', 'js'], function () {
     var optsInline = {
         swallowErrors: true
     };
-
+/*
     async.mapSeries(pages, function (page, callback) {
         console.log('Building critical path for page: ', page);
         criticalParams.src = page + '.html';
@@ -213,16 +219,21 @@ gulp.task('build', ['template', 'css', 'js'], function () {
         .pipe(inlinesource(optsInline))
         .pipe(minifyHTML(optsHtml))
         .pipe(gulp.dest(outputPath));
-    })
-    /*
+    });
+*/
+
     critical.generate(criticalParams, function () {
         return gulp.src('./src/rendered/*.html')
     //    .pipe(base64(base64Opts))
+        .pipe(deleteLines({
+            'filters': [
+                /<link rel="stylesheet" href=".\/production.css" \/>/i
+            ]
+        }))
         .pipe(inlinesource(optsInline))
         .pipe(minifyHTML(optsHtml))
         .pipe(gulp.dest(outputPath));
     });
-    */
 
 });
 

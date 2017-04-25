@@ -83,22 +83,7 @@ var app = {
         }
         selectOnLoad();
     },
-    init: function () {
-        app.doms.domainBtns = document.getElementsByClassName('select-domain');
-        if (app.doms.domainBtns.length > 0) {
-            app.doms.domainBtns[app.params.selectedDomain].className += ' selected';
-            app.doms.highlight = document.getElementsByClassName('highlight')[0];
-            app.doms.doctors = document.getElementsByClassName('people-doc');
-            app.doms.highlight.style.top = 0;
-            app.params.doctorsClassNameOrg = app.doms.doctors[0].className;
-            app.bindSelectDomain();
-        }
-    }
-};
-
-(function () {
-    var pageClass = document.getElementsByClassName('page')[0];
-    var bindMapToggle = function () {
+    bindMapToggle: function () {
         var toggleMap = function (target, className) {
             if (target.className.indexOf(className) < 0) {
                 target.className = className;
@@ -120,20 +105,35 @@ var app = {
         mapCloseBtn.addEventListener('click', function () {
             toggleMap(document.body, 'overlay');
         });
-    };
-    var appendCSS = function (filePath) {
+    },
+    appendCSS: function (filePath) {
         var style = document.createElement('link');
         var head = document.getElementsByTagName('head')[0];
 
         style.rel = 'stylesheet';
         style.href = filePath;
         head.appendChild(style);
-    };
-
-    bindMapToggle();
-    // Apply critical path only in home page
-    if (pageClass.className.indexOf('index') > 0) {
-        appendCSS('./production.css');
+    },
+    init: function () {
+        // Apply critical path only in home page
+        /*
+        var pageClass = document.getElementsByClassName('page')[0];
+        if (pageClass.className.indexOf('index') > 0) {
+            appendCSS('./production.css');
+        }
+        */
+        app.appendCSS('./production.css');
+        app.bindMapToggle();
+        app.doms.domainBtns = document.getElementsByClassName('select-domain');
+        if (app.doms.domainBtns.length > 0) {
+            app.doms.domainBtns[app.params.selectedDomain].className += ' selected';
+            app.doms.highlight = document.getElementsByClassName('highlight')[0];
+            app.doms.doctors = document.getElementsByClassName('people-doc');
+            app.doms.highlight.style.top = 0;
+            app.params.doctorsClassNameOrg = app.doms.doctors[0].className;
+            app.bindSelectDomain();
+        }
     }
-    app.init();
-})();
+};
+
+app.init();

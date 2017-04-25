@@ -23,6 +23,7 @@
         "gulp-base64": "0.1.2",
         "gulp-clean": "*",
         "gulp-concat": "*",
+        "gulp-delete-lines": "0.0.7",
         "gulp-ejs": "*",
         "gulp-imagemin": "3.2.0",
         "gulp-inline-source": "*",
