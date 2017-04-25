@@ -69,7 +69,13 @@ gulp.task('images-min', ['copy-png'], function () {
     .pipe(gulp.dest('./src/images'));
 });
 
-gulp.task('images', ['clean-img'], function () {
+gulp.task('copy-calendar', ['clean-img'], function () {
+    return gulp.src('./calendar.jpg')
+    .pipe(imagemin([imageminGuetzli({quality: 90})]))
+    .pipe(gulp.dest('./src/images'));
+});
+
+gulp.task('images', ['copy-calendar'], function () {
     return gulp.src('./src/images/**/*')
     .pipe(gulp.dest(path.join(outputPath, '/images')));
 });
