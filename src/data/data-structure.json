@@ -74,7 +74,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 醫師團隊",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/16179.jpg", "./images/15884.jpg", "./images/16075.jpg"],
+        "hero": ["./images/16179.jpg", "./images/15884.jpg", "./images/16075.jpg", "./images/15640.jpg"],
         "content": [
             {
                 "name": "侯佳君 醫師",
@@ -284,6 +284,20 @@
             "description": "eden-vet desc"
         },
         "hero": ["images/office.jpg"]
+    },
+    "24h": {
+        "head": {
+            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 門診時間",
+            "description": "eden-vet desc"
+        },
+        "hero": ["images/office.jpg"],
+        "content": [
+            {"h2": "各科專科"},
+            {"h3": "心臟問題"},
+            {"p": "(心臟科的描述)"},
+            {"h3": "洗腎"},
+            {"p": "(洗腎介紹)"}
+        ]
     },
     "departments": {
         "head": {
