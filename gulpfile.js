@@ -1,5 +1,6 @@
 'use strict';
 
+var async = require('async');
 var base64 = require('gulp-base64');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
@@ -19,11 +20,12 @@ var path = require('path');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
-var templateFiles = [
-    './src/templates/index.ejs',
-    './src/templates/service.ejs',
-    './src/templates/people.ejs',
-    './src/templates/schedule.ejs',
+var pages = [
+    'index',
+    'service',
+    'people',
+    'schedule',
+    'departments'
 ];
 var jsfiles = ['./src/js/script.js'];
 /*
@@ -97,6 +99,12 @@ gulp.task('css', ['less'], function () {
 });
 
 // Concat and compress JS files in src/data/javascript, and generate build/production.js
+gulp.task('js-dev', ['lint'], function () {
+    return gulp.src(jsfiles)
+    .pipe(gulp.dest(outputPath));
+});
+
+// Concat and compress JS files in src/data/javascript, and generate build/production.js
 gulp.task('js', ['lint'], function () {
     var jsfilesToBuild;
     if (jsfiles === [] || typeof jsfiles === 'undefined') {
@@ -124,7 +132,12 @@ gulp.task('template', ['jsonlint'], function (done) {
        ignorePartials: true,
        batch : ['./src/templates/partials']
     };
+    var templateFiles = [];
+    var i;
 
+    for (i = 0; i < pages.length; i += 1) {
+        templateFiles.push('./src/templates/' + pages[i] + '.ejs');
+    }
     fs.readFile(filepath, {encoding: 'utf-8'}, function (err, D) {
         var data;
 
@@ -144,40 +157,69 @@ gulp.task('template', ['jsonlint'], function (done) {
     });
 });
 
+gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
+    var optsHtml = {
+      conditionals: true,
+      spare: true
+    };
+    return gulp.src('./src/rendered/*.html')
+//    .pipe(base64(base64Opts))
+//    .pipe(inlinesource(optsInline))
+    .pipe(minifyHTML(optsHtml))
+    .pipe(gulp.dest(outputPath));
+});
+
 gulp.task('build', ['template', 'css', 'js'], function () {
     var optsHtml = {
       conditionals: true,
       spare: true
     };
+    var criticalParams = {
+        base: 'src/rendered',
+        src: 'index.html',
+        css: 'src/rendered/production.css',
+        dimensions: [{
+          width: 320,
+          height: 480
+        },{
+          width: 480,
+          height: 500
+        },{
+          width: 739,
+          height: 1020
+        }],
+        dest: 'index.css',
+        minify: true,
+        extract: false,
+        ignore: ['@font-face',/url\(/]
+    }
     var optsInline = {
         swallowErrors: true
     };
 
-    critical.generate({
-      base: 'src/rendered',
-      src: 'index.html',
-      css: 'src/rendered/production.css',
-      dimensions: [{
-        width: 320,
-        height: 480
-      },{
-        width: 480,
-        height: 500
-      },{
-        width: 739,
-        height: 1020
-      }],
-      dest: 'critical.css',
-      minify: true,
-      extract: false,
-      ignore: ['@font-face',/url\(/]
+    async.mapSeries(pages, function (page, callback) {
+        criticalParams.src = page + '.html';
+        criticalParams.dest = page + '.css';
+        critical.generate(criticalParams, function () {
+            callback();
+        });
     }, function () {
         return gulp.src('./src/rendered/*.html')
     //    .pipe(base64(base64Opts))
         .pipe(inlinesource(optsInline))
         .pipe(minifyHTML(optsHtml))
         .pipe(gulp.dest(outputPath));
+    })
+    /*
+    critical.generate(criticalParams, function () {
+        return gulp.src('./src/rendered/*.html')
+    //    .pipe(base64(base64Opts))
+        .pipe(inlinesource(optsInline))
+        .pipe(minifyHTML(optsHtml))
+        .pipe(gulp.dest(outputPath));
     });
+    */
+
 });
 
 // Validate all JS files

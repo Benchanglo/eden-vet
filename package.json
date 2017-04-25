@@ -11,10 +11,12 @@
     "main": "server.js",
     "scripts": {
         "build": "mkdir ./src/rendered; gulp build",
+        "build-dev": "mkdir ./src/rendered; gulp build-dev",
         "image": "gulp images-min",
         "lint": "gulp lint"
     },
     "dependencies": {
+        "async": "*",
         "critical": "0.8.4",
         "imagemin-guetzli": "1.0.0",
         "gulp": "3.8.10",

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <% var page = departments; var pageName = 'departments'; %>
+    <% include ./partials/head.ejs %>
+    <body>
+        <div class="page schedule">
+            <div class="wrap">
+                <% include ./partials/header.ejs %>
+                <% include ./partials/hero.ejs %>
+                <div class="body">
+                    <% include ./partials/content.ejs %>
+                    <% include ./partials/sidebar.ejs %>
+                </div>
+                <% include ./partials/footer.ejs %>
+            </div>
+        </div>
+        <% include ./partials/map.ejs %>
+    </body>
+    <script src="./script.js" inline></script>
+    <% include ./partials/scripts.ejs %>
+</html>
