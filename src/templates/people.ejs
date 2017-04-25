@@ -23,7 +23,7 @@
                             <ul class="domains">
                                 <li><a class="select-domain all" href="">所有醫師</a></li>
                             <% for (var i = 0; i < domains.length; i += 1) { %>
-                                <li><a class="select-domain" href=""><%= domains[i]%></a></li>
+                                <li><a class="select-domain" href="#division-<%= i + 1 %>"><%= domains[i]%></a></li>
                             <% } %>
                             </ul>
                             <div class="highlight"></div>
