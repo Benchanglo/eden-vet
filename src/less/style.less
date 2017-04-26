@@ -64,6 +64,11 @@ body {
         //box-shadow: #777 0 0 1px;
     }
 }
+.subpages {
+    .subpage {
+        display: none;
+    }
+}
 .content-overlay {
     display: none;
     color: #555;
@@ -314,13 +319,32 @@ body {
     a {
         font-size: 15px;
         display: block;
+        position: relative;
         width: 100%;
         padding: 0;
-        &.selected {
-            background: @color-eden;
+        z-index: 10;
+        &:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            z-index: -1;
             border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            transition: all 0.1s ease-in-out;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            background: @color-eden;
+        }
+        &.selected {
             &:link, &:visited {
                 color: #fff;
+            }
+            &:after {
+                opacity: 1;
             }
         }
     }

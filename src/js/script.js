@@ -83,6 +83,69 @@ var app = {
         }
         selectOnLoad();
     },
+    bindSubpage: function () {
+        var i;
+        var bindSelectSubpageEvent = function (item, index) {
+            item.addEventListener('click', function (e) {
+                var subpageName = e.target.getAttribute('href').substring(1);
+                e.preventDefault();
+                selectSubpage(subpageName, index);
+            });
+        };
+        var selectSubpage = function (className, index) {
+            var i;
+
+            for (i = 0; i < app.doms.subpages.length; i += 1) {
+                if (app.doms.subpages[i].className.indexOf(className) > 0) {
+                    app.doms.subpages[i].style.display = 'block';
+                } else {
+                    app.doms.subpages[i].style.display = null;
+                }
+            }
+            for (i = 0; i < app.doms.subnavs.length; i += 1) {
+                if (i === index) {
+                    app.doms.subnavs[i].className = 'selected';
+                } else {
+                    app.doms.subnavs[i].className = '';
+                }
+            }
+//            app.params.baseUrl = url.substring(0, anchorIndex);
+            window.history.pushState({}, document.title, app.params.baseUrl + '#' + className);
+        };
+        var selectOnLoad = function () {
+            var url = window.location.href;
+            var anchorIndex = url.indexOf('#');
+            var anchorName;
+            var i;
+            var selectedSubpage;
+            var selectedSubpageIndex;
+            var firstItemClassNames;
+
+            app.params.baseUrl = url.substring(0, anchorIndex);
+            if (anchorIndex > 0) {
+                anchorName = url.substring(url.indexOf('#') + 1);
+                for (i = 0; i < app.doms.subpages.length; i += 1) {
+                    if (app.doms.subpages[i].className.indexOf(anchorName) > 0) {
+                        selectedSubpage = anchorName;
+                        selectedSubpageIndex = i;
+                    }
+                }
+            }
+            // invalid anchor, redirect to basepage
+            if (!selectedSubpage) {
+                firstItemClassNames = app.doms.subpages[0].className.split(' ');
+                selectedSubpage = firstItemClassNames[firstItemClassNames.length - 1];
+                selectedSubpageIndex = 0;
+                window.history.pushState({}, document.title, app.params.baseUrl);
+            }
+            selectSubpage(selectedSubpage, selectedSubpageIndex);
+        };
+
+        for (i = 0; i < app.doms.subnavs.length; i += 1) {
+            bindSelectSubpageEvent(app.doms.subnavs[i], i);
+        }
+        selectOnLoad();
+    },
     bindMapToggle: function () {
         var toggleMap = function (target, className) {
             if (target.className.indexOf(className) < 0) {
@@ -132,6 +195,12 @@ var app = {
             app.doms.highlight.style.top = 0;
             app.params.doctorsClassNameOrg = app.doms.doctors[0].className;
             app.bindSelectDomain();
+        }
+        app.doms.subpages = document.getElementsByClassName('subpage');
+        if (app.doms.subpages.length > 0) {
+            app.doms.subnavs = document.querySelectorAll('.subnav li a');
+            app.bindSubpage();
+            //subpage
         }
     }
 };

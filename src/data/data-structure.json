@@ -71,17 +71,17 @@
             {
                 "name": "24小時急診",
                 "page": "24h",
-                "url": "./24h.html"
+                "url": "#24h"
             },
             {
                 "name": "各科專科",
                 "page": "divisions",
-                "url": "./divisions.html"
+                "url": "#divisions"
             },
             {
                 "name": "非犬貓專科",
                 "page": "beyond-dog-cat",
-                "url": "./beyond-dog-cat.html"
+                "url": "#beyond-dog-cat"
             }
         ]
     },
@@ -343,15 +343,18 @@
             "ul": [
                 {
                     "name": "24小時急診",
-                    "url": "24h.html"
+                    "page": "24h",
+                    "url": "service.html#24h"
                 },
                 {
                     "name": "各科專科",
-                    "url": "divisions.html"
+                    "page": "divisions",
+                    "url": "service.html#divisions"
                 },
                 {
                     "name": "非犬貓門診",
-                    "url": "beyond-dog-cat.html"
+                    "page": "beyond-dog-cat",
+                    "url": "service.html#beyond-dog-cat"
                 }
                 
             ]
