@@ -179,7 +179,7 @@ gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
             /<link rel="stylesheet" href=".\/critical.css"/i
         ]
     }))
-    .pipe(minifyHTML(optsHtml))
+//    .pipe(minifyHTML(optsHtml))
     .pipe(gulp.dest(outputPath));
 });
 

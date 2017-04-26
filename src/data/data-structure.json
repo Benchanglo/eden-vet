@@ -56,7 +56,7 @@
         "content": [
             {"h2": "24小時急診加護", "a": "./24h.html"},
             {"p": "全天候的急診與住院醫師待命，需要我們的時候我們隨時都在！"},
-            {"h2": "內外科專科", "a": "./divisions.html"},
+            {"h2": "各科專科", "a": "./divisions.html"},
             {"p": "經驗豐富的內外科治療經驗。心臟、腫瘤、皮膚等各專科醫師，讓您放心託付。"},
             {"h2": "非犬貓門診", "a": "./beyond-dog-cat.html"},
             {"p": "犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢。"}
@@ -66,7 +66,24 @@
                 {"h2": "兔子"},
                 {"p": "miu miu"}
             ]
-        }
+        },
+        "subnav": [
+            {
+                "name": "24小時急診",
+                "page": "24h",
+                "url": "./24h.html"
+            },
+            {
+                "name": "各科專科",
+                "page": "divisions",
+                "url": "./divisions.html"
+            },
+            {
+                "name": "非犬貓專科",
+                "page": "beyond-dog-cat",
+                "url": "./beyond-dog-cat.html"
+            }
+        ]
     },
     "people": {
         "head": {
@@ -296,9 +313,9 @@
             {"p": "本院位置臨近捷運大直站及中山高速公路（國道一號），方便您即時送院。若發現家中寶貝有異狀時，請盡快與本院聯繫。"}
         ]
     },
-    "departments": {
+    "divisions": {
         "head": {
-            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 門診時間",
+            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 各科專科",
             "description": "eden-vet desc"
         },
         "hero": ["images/office.jpg"],
@@ -310,16 +327,26 @@
             {"p": "(洗腎介紹)"}
         ]
     },
+    "beyondDogCat": {
+        "head": {
+            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 非犬貓門診",
+            "description": "eden-vet desc"
+        },
+        "hero": ["images/office.jpg"],
+        "content": [
+            {"h2": "貓狗之外"}
+        ]
+    },
     "sidebar": [
         {
-            "title": "本院特色",
+            "title": "特色服務項目",
             "ul": [
                 {
                     "name": "24小時急診",
                     "url": "24h.html"
                 },
                 {
-                    "name": "內外科專科",
+                    "name": "各科專科",
                     "url": "divisions.html"
                 },
                 {

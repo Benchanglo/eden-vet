@@ -1,0 +1,15 @@
+<div class="subnav">
+    <nav>
+        <ul>
+            <% for (var i = 0; i < parentPage.subnav.length; i += 1) { %>
+                <li>
+                    <a href="<%= parentPage.subnav[i].url %>"
+                        <% if (subNav === parentPage.subnav[i].page) { %>class="selected"<% } %>
+                    >
+                        <%= parentPage.subnav[i].name %>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</div>
