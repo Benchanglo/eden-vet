@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <% var page = service; var parentPage = service; var pageName = 'service'; %>
+    <% var page = service; var parentPage = service; var pageName = 'service'; var subNav = '24h'; %>
     <% include ./partials/head.ejs %>
     <body>
         <div class="page service">
@@ -14,7 +14,7 @@
 
                             <section class="subpage 24h">
                                 <h2>急診專線：<a href="tel:02-85092579">02-85092579</a></h2>
-                                <% var page = roundClock; var subNav = '24h'; %>
+                                <% page = roundClock; subNav = '24h'; %>
                                 <% include ./partials/content.ejs %>
                                 <iframe
                                   frameborder="0"
@@ -24,12 +24,12 @@
                             </section>
 
                             <section class="subpage divisions">
-                                <% var page = divisions; var subNav = 'divisions'; %>
+                                <% page = divisions; subNav = 'divisions'; %>
                                 <% include ./partials/content.ejs %>
                             </section>
 
                             <section class="subpage beyond-dog-cat">
-                                <% var page = beyondDogCat; var subNav = 'beyond-dog-cat'; %>
+                                <% page = beyondDogCat; subNav = 'beyond-dog-cat'; %>
                                 <% include ./partials/content.ejs %>
                             </section>
                         </main>
