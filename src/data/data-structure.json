@@ -344,17 +344,17 @@
                 {
                     "name": "24小時急診",
                     "page": "24h",
-                    "url": "service.html#24h"
+                    "url": "./service.html#24h"
                 },
                 {
                     "name": "各科專科",
                     "page": "divisions",
-                    "url": "service.html#divisions"
+                    "url": "./service.html#divisions"
                 },
                 {
                     "name": "非犬貓門診",
                     "page": "beyond-dog-cat",
-                    "url": "service.html#beyond-dog-cat"
+                    "url": "./service.html#beyond-dog-cat"
                 }
                 
             ]

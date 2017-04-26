@@ -7,10 +7,10 @@
                 </div>
                 <div class="bd">
                     <% if (typeof sidebar[i].ul !== 'undefined') { %>
-                    <ul>
+                    <ul class="service-subs">
                         <% for (var j = 0; j < sidebar[i].ul.length; j += 1) { %>
                             <li>
-                                <a href="<%= sidebar[i].ul[j].url %>"><%= sidebar[i].ul[j].name %></a>
+                                <a rel-page="<%= sidebar[i].ul[j].page%>" href="<%= sidebar[i].ul[j].url %>"><%= sidebar[i].ul[j].name %></a>
                             </li>
                         <% } %>
                     </ul>

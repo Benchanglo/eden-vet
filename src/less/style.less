@@ -550,6 +550,31 @@ body {
         height: 400px;
     }
 }
+.service-subs {
+    a {
+        &:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            border-radius: 0 12px 12px 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            transition: all 0.1s ease-in-out;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            background: @color-eden;
+        }
+        &.selected {
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+}
 .sidebar {
     display: inline-block;
     width: 30%;
@@ -561,7 +586,11 @@ body {
         font-weight: 300;
     }
     a {
+        display: block;
+        position: relative;
         text-decoration: none;
+        text-indent: 10px;
+        z-index: 10;
         &:link,
         &:visited {
             color: @color-eden;
@@ -571,6 +600,11 @@ body {
         }
         &:active {
             color: @color-eden-dark;
+        }
+        &.selected {
+            &:link, &:visited {
+                color: #fff;
+            }
         }
     }
     .bd {
@@ -942,7 +976,7 @@ and (min-width : 740px) {
             }
         }
         .hero {
-            height: 210px;
+            height: 180px;
             img {
                 left: -5%;
                 width: 110%;
@@ -988,6 +1022,7 @@ and (min-width : 740px) {
                     display: block;
                     width: 100%;
                     padding: 0;
+                    text-indent: 0;
                     &.selected {
                         background: @color-eden;
                         border-radius: 12px;
@@ -995,9 +1030,10 @@ and (min-width : 740px) {
                 }
                 .domains {
                     text-align: left;
+                    font-size: 0;
                     li {
                         display: inline-block;
-                        width: 25%;
+                        width: 33.3%;
                         margin: 0 0 5px 0;
                         text-align: center;
                     }

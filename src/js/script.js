@@ -87,7 +87,8 @@ var app = {
         var i;
         var bindSelectSubpageEvent = function (item, index) {
             item.addEventListener('click', function (e) {
-                var subpageName = e.target.getAttribute('href').substring(1);
+                var href = e.target.getAttribute('href');
+                var subpageName = href.substring(href.indexOf('#') + 1);
                 e.preventDefault();
                 selectSubpage(subpageName, index);
             });
@@ -105,11 +106,13 @@ var app = {
             for (i = 0; i < app.doms.subnavs.length; i += 1) {
                 if (i === index) {
                     app.doms.subnavs[i].className = 'selected';
+                    app.doms.sidebars[i].className = 'selected';
+
                 } else {
                     app.doms.subnavs[i].className = '';
+                    app.doms.sidebars[i].className = '';
                 }
             }
-//            app.params.baseUrl = url.substring(0, anchorIndex);
             window.history.pushState({}, document.title, app.params.baseUrl + '#' + className);
         };
         var selectOnLoad = function () {
@@ -143,6 +146,7 @@ var app = {
 
         for (i = 0; i < app.doms.subnavs.length; i += 1) {
             bindSelectSubpageEvent(app.doms.subnavs[i], i);
+            bindSelectSubpageEvent(app.doms.sidebars[i], i);
         }
         selectOnLoad();
     },
@@ -199,6 +203,7 @@ var app = {
         app.doms.subpages = document.getElementsByClassName('subpage');
         if (app.doms.subpages.length > 0) {
             app.doms.subnavs = document.querySelectorAll('.subnav li a');
+            app.doms.sidebars = document.querySelectorAll('.service-subs li a');
             app.bindSubpage();
             //subpage
         }
