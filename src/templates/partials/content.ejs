@@ -1,20 +1,15 @@
-<div class="content">
-    <main>
-    <% for (var i = 0; i < page.content.length; i += 1) { %>
-        <% var openSection; %>
-        <% for (var j in page.content[i]) { %>
-            <% if (j.indexOf('h') > -1) { %>
-                <% if (openSection === true) { %>
-                    <% openSection = false; %>
-                    </section>
-                <% } %>
-                <% openSection = true; %>
-                <section>
-            <% } %>
+<% for (var i = 0; i < page.content.length; i += 1) { %>
+    <% for (var j in page.content[i]) { %>
+        <% if (j !== 'a') { %>
             <<%= j %>>
-                <%= page.content[i][j] %>
+                <% if (typeof page.content[i].a !== 'undefined') { %>
+                    <a href="<%= page.content[i].a%>">
+                        <%= page.content[i][j] %>
+                    </a>
+                <% } else {%>
+                    <%= page.content[i][j] %>
+                <% } %>
             </<%= j %>>
         <% } %>
     <% } %>
-    </main>
-</div>
+<% } %>

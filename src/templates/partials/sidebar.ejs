@@ -9,7 +9,9 @@
                     <% if (typeof sidebar[i].ul !== 'undefined') { %>
                     <ul>
                         <% for (var j = 0; j < sidebar[i].ul.length; j += 1) { %>
-                            <li><%= sidebar[i].ul[j] %></li>
+                            <li>
+                                <a href="<%= sidebar[i].ul[j].url %>"><%= sidebar[i].ul[j].name %></a>
+                            </li>
                         <% } %>
                     </ul>
                     <% } %>

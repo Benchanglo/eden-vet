@@ -26,7 +26,9 @@ var pages = [
     'service',
     'people',
     'schedule',
-    'departments'
+    '24h',
+    'divisions',
+    'beyond-dog-cat'
 ];
 var jsfiles = ['./src/js/script.js'];
 /*
@@ -71,7 +73,7 @@ gulp.task('images-min', ['copy-png'], function () {
 
 gulp.task('copy-calendar', ['clean-img'], function () {
     return gulp.src('./calendar.jpg')
-    .pipe(imagemin([imageminGuetzli({quality: 90})]))
+    //.pipe(imagemin([imageminGuetzli({quality: 90})]))
     .pipe(gulp.dest('./src/images'));
 });
 
