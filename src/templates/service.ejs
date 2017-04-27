@@ -107,6 +107,45 @@
                             <section class="subpage beyond-dog-cat">
                                 <% page = beyondDogCat; %>
                                 <% include ./partials/content.ejs %>
+                                <%
+                                    var doctors = people.content;
+                                    var divisionName = '非犬貓';
+                                    var nonDogCat = [];
+                                    var i;
+                                    var j;
+
+                                    for (i = 0; i < doctors.length; i += 1) {
+                                        for (j = 0; j < doctors[i].domains.length; j += 1) {
+                                            if (doctors[i].domains[j] === divisionName) {
+                                                nonDogCat.push(doctors[i]);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                %>
+                                <h4><%= divisionName %>醫師</h4>
+                                <ul class="div-doctors">
+                                    <% for (var i = 0; i < nonDogCat.length; i += 1) { %>
+                                    <li class="Cf">
+                                        <div class="hd">
+                                            <a class="toggle-resume" href=""><%= nonDogCat[i].name %></a>
+                                        </div>
+                                        <div class="bd hide">
+                                            <div class="pic">
+                                                <img src="<%= nonDogCat[i].image %>" />
+                                            </div>
+                                            <div class="resume">
+                                                <ul>
+                                                    <% for (var j = 0; j < nonDogCat[i].resume.length; j += 1) { %>
+                                                        <li><%= nonDogCat[i].resume[j] %></li>
+                                                    <% } %>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                                <a href="./images/calendar.jpg"><img src="./images/calendar.jpg" /></a>
                             </section>
                         </main>
                     </div>
