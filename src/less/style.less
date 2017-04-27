@@ -23,6 +23,9 @@
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */ 
     clip: rect(1px, 1px, 1px, 1px); 
 }
+.hide {
+    display: none;
+}
 body {
     font-family: 'Noto Sans TC', sans-serif;
     background: #f6f2e4;
@@ -312,54 +315,6 @@ body {
         }
     }
 }
-.subnav {
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    margin: 8px 0;
-    a {
-        font-size: 15px;
-        display: block;
-        position: relative;
-        width: 100%;
-        padding: 0;
-        z-index: 10;
-        &:after {
-            content: " ";
-            display: block;
-            position: absolute;
-            z-index: -1;
-            border-radius: 12px;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            top: 0;
-            left: 0;
-            transition: all 0.1s ease-in-out;
-            -webkit-transition: all 0.1s ease-in-out;
-            -moz-transition: all 0.1s ease-in-out;
-            background: @color-eden;
-        }
-        &.selected {
-            &:link, &:visited {
-                color: #fff;
-            }
-            &:after {
-                opacity: 1;
-            }
-        }
-    }
-    ul {
-        text-align: left;
-        font-size: 0;
-        li {
-            display: inline-block;
-            width: 33.3%;
-            margin: 0 0 5px 0;
-            text-align: center;
-            font-size: 16px;
-        }
-    }
-}
 .title {
     position: relative;
     display: inline-block;
@@ -523,7 +478,7 @@ body {
 
     }
     section {
-        margin: 30px 0 0 0;
+        margin: 20px 0 0 0;
         &:first-child {
             margin: 0;
         }
@@ -550,8 +505,75 @@ body {
         height: 400px;
     }
 }
+.subnav {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    margin: 8px 0;
+    a {
+        font-size: 15px;
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 0;
+        z-index: 10;
+        &:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            transition: all 0.1s ease-in-out;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            background: @color-tiffany;
+        }
+        &:link, &:visited {
+            color: @color-tiffany;
+        }
+        &.selected {
+            &:link, &:visited {
+                color: #fff;
+            }
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+    ul {
+        text-align: left;
+        font-size: 0;
+        li {
+            display: inline-block;
+            width: 25%;
+            margin: 0 0 5px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+}
+.toggle-resume {
+    color: @color-eden;
+    background: none;
+    border: 0;
+}
+.service {
+    .sidebar {
+        width: 20%;
+    }
+    .content {
+        width: 75%;
+        margin: 0 0 0 5%;
+    }
+}
 .service-subs {
     a {
+        display: block;
+        width: 100%;
         &:after {
             content: " ";
             display: block;
@@ -676,6 +698,53 @@ body {
         color: #efefef;
     }
 }
+.div-doctors {
+    .pic {
+        float: left;
+        margin: 0 20px 0 0;
+        img {
+            border-radius: 12px;
+            width: 200px;
+        }
+    }
+    li {
+        .bd {
+            display: none;
+        }
+        .toggle-resume {
+            padding: 0 5px;
+            &:before {
+                display: inline-block;
+                content: " ";
+                width: 0;
+                height: 0;
+                margin: 0 10px 0 0;
+                border-style: solid;
+                border-width: 5px 0 5px 8px;
+                border-color: transparent transparent transparent @color-eden;
+                transition: all 0.1s ease-in-out;
+                -webkit-transition: all 0.1s ease-in-out;
+                -moz-transition: all 0.1s ease-in-out;
+            }
+        }
+        &.show {
+            .toggle-resume {
+                &:link, &:visited, &:hover, &:active {
+                    color: @color-eden;
+                }
+                &:before {
+                   -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+                   transform: rotate(90deg);
+                }
+            }
+            .bd {
+                display: block;
+                border-top: 1px solid @color-eden;
+                padding: 10px 0 0 0;
+            }
+        }
+    }
+}
 .people-doc {
     margin: 0 0 20px 0;
     .pic {
@@ -761,6 +830,14 @@ and (min-width : 740px) {
             }
         }
     }
+    .div-doctors {
+        .pic {
+            img {
+                width: 160px;
+            }
+        }
+    }
+
     .schedule {
         .content, .sidebar {
             display: block;
@@ -812,6 +889,13 @@ and (min-width : 740px) {
             font-size: 18px;
         }
     }
+    .subnav {
+        ul {
+            li {
+                width: 33.33%;
+            }
+        }
+    }
     .title {
         width: 65%;
         height: @logoH + 12;
@@ -843,6 +927,33 @@ and (min-width : 740px) {
     }
     .footer {
         width: 90%;
+    }
+    .service {
+        .sidebar {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            .service-subs {
+                text-align: left;
+                font-size: 0;
+                li {
+                    display: inline-block;
+                    width: 33.3%;
+                    margin: 0 0 5px 0;
+                    text-align: center;
+                    a {
+                        font-size: 15px;
+                        text-indent: 0;
+                        &:after {
+                            border-radius: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        .content {
+            width: 96%;
+            margin: 0 auto;
+        }
     }
     .people {
         .sidebar {
@@ -892,6 +1003,13 @@ and (min-width : 740px) {
                 img {
                     width: 140px;
                 }
+            }
+        }
+    }
+    .div-doctors {
+        .pic {
+            img {
+                width: 140px;
             }
         }
     }
@@ -1004,6 +1122,13 @@ and (min-width : 740px) {
                 height: 240px;
             }
         }
+        .subnav {
+            ul {
+                li {
+                    width: 33.33%;
+                }
+            }
+        }
         .footer {
             width: 90%;
             .line1 {
@@ -1067,9 +1192,40 @@ and (min-width : 740px) {
                 }
             }
         }
+        .div-doctors {
+            .pic {
+                float: right;
+                margin: 10px 0 0 10px;
+                img {
+                    width: 120px;
+                }
+            }
+        }
         .service {
             .sidebar {
-                display: none;
+                width: 100%;
+                border-bottom: 1px solid #ddd;
+                .service-subs {
+                    text-align: left;
+                    font-size: 0;
+                    li {
+                        display: inline-block;
+                        width: 33.3%;
+                        margin: 0 0 5px 0;
+                        text-align: center;
+                        a {
+                            font-size: 15px;
+                            text-indent: 0;
+                            &:after {
+                                border-radius: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+            .content {
+                width: 96%;
+                margin: 0 auto;
             }
         }
         .schedule {

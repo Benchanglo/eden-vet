@@ -45,6 +45,8 @@ var app = {
             }
         };
         var selectDomain = function (index, anchor) {
+            console.log('domainIndex: ', index);
+            console.log('anchor: ', anchor);
             var i;
             var domainName = app.doms.domainBtns[index].innerText;
             var domainBtns = app.doms.domainBtns;
@@ -73,8 +75,8 @@ var app = {
             app.params.baseUrl = url.substring(0, anchorIndex);
             if (anchorIndex > 0) {
                 anchor = url.substring(url.indexOf('#'));
-                domainIndex =  parseInt(anchor.substring(anchor.indexOf('-') + 1)) - 1;
-                selectDomain(domainIndex);
+                domainIndex =  parseInt(anchor.substring(anchor.indexOf('-') + 1));
+                selectDomain(domainIndex, anchor);
             }
         };
 
@@ -89,12 +91,39 @@ var app = {
             item.addEventListener('click', function (e) {
                 var href = e.target.getAttribute('href');
                 var subpageName = href.substring(href.indexOf('#') + 1);
+
+                if (subpageName.indexOf('?') > 0) {
+                    subpageName = subpageName.substring(0, subpageName.indexOf('?'));
+                }
                 e.preventDefault();
                 selectSubpage(subpageName, index);
             });
         };
+        var bindSelectDivEvent = function (item, index) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                selectDiv(index);
+            });
+
+        };
+        var bindToggleResumeEvent = function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                toggleBd(e);
+            });
+        };
+        var toggleBd = function (e) {
+            var bd = e.target.parentNode.parentNode;
+
+            if (bd.className.indexOf('show') > 0) {
+                bd.className = 'Cf';
+            } else {
+                bd.className = 'Cf show';
+            }
+        };
         var selectSubpage = function (className, index) {
             var i;
+            var divQuery = window.location.href.indexOf('?div=');
 
             for (i = 0; i < app.doms.subpages.length; i += 1) {
                 if (app.doms.subpages[i].className.indexOf(className) > 0) {
@@ -103,17 +132,36 @@ var app = {
                     app.doms.subpages[i].style.display = null;
                 }
             }
-            for (i = 0; i < app.doms.subnavs.length; i += 1) {
+            for (i = 0; i < app.doms.sidebars.length; i += 1) {
                 if (i === index) {
-                    app.doms.subnavs[i].className = 'selected';
                     app.doms.sidebars[i].className = 'selected';
 
                 } else {
-                    app.doms.subnavs[i].className = '';
                     app.doms.sidebars[i].className = '';
                 }
             }
-            window.history.pushState({}, document.title, app.params.baseUrl + '#' + className);
+            if (className === 'divisions') {
+                if (divQuery < 0 || divQuery >= app.doms.subnavs.length - 1) {
+                    divQuery = 0;
+                }
+                selectDiv(divQuery);
+                
+            } else {
+                window.history.pushState({}, document.title, app.params.baseUrl + '#' + className);
+            }
+        };
+        var selectDiv = function (index) {
+            var i;
+            for (i = 0; i < app.doms.subnavs.length; i += 1) {
+                if (i === index) {
+                    app.doms.subnavs[i].className = app.params.subNavClassNameOrg + ' selected';
+                    app.doms.divisionLi[i].className = app.params.divisionLiClassNameOrg;
+                } else {
+                    app.doms.subnavs[i].className = app.params.subNavClassNameOrg;
+                    app.doms.divisionLi[i].className = app.params.divisionLiClassNameOrg + ' hide';
+                }
+                window.history.pushState({}, document.title, app.params.baseUrl + '#divisions?div=' + index);
+            }
         };
         var selectOnLoad = function () {
             var url = window.location.href;
@@ -144,9 +192,14 @@ var app = {
             selectSubpage(selectedSubpage, selectedSubpageIndex);
         };
 
-        for (i = 0; i < app.doms.subnavs.length; i += 1) {
-            bindSelectSubpageEvent(app.doms.subnavs[i], i);
+        for (i = 0; i < app.doms.sidebars.length; i += 1) {
             bindSelectSubpageEvent(app.doms.sidebars[i], i);
+        }
+        for (i = 0; i < app.doms.subnavs.length; i += 1) {
+            bindSelectDivEvent(app.doms.subnavs[i], i);
+        }
+        for (i = 0; i < app.doms.toggleResume.length; i += 1) {
+            bindToggleResumeEvent(app.doms.toggleResume[i]);
         }
         selectOnLoad();
     },
@@ -182,6 +235,7 @@ var app = {
         head.appendChild(style);
     },
     init: function () {
+        var page;
         // Apply critical path only in home page
         /*
         var pageClass = document.getElementsByClassName('page')[0];
@@ -200,12 +254,17 @@ var app = {
             app.params.doctorsClassNameOrg = app.doms.doctors[0].className;
             app.bindSelectDomain();
         }
-        app.doms.subpages = document.getElementsByClassName('subpage');
-        if (app.doms.subpages.length > 0) {
+        //service
+        page = document.getElementsByClassName('page')[0];
+        if (page.className.indexOf('service') > 0) {
+            app.doms.subpages = document.getElementsByClassName('subpage');
             app.doms.subnavs = document.querySelectorAll('.subnav li a');
+            app.doms.divisionLi = document.getElementsByClassName('division-li');
             app.doms.sidebars = document.querySelectorAll('.service-subs li a');
+            app.doms.toggleResume = document.getElementsByClassName('toggle-resume');
+            app.params.subNavClassNameOrg = app.doms.subnavs[0].className;
+            app.params.divisionLiClassNameOrg = app.doms.divisionLi[0].className;
             app.bindSubpage();
-            //subpage
         }
     }
 };

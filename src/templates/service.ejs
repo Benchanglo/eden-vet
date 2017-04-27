@@ -8,13 +8,24 @@
                 <% include ./partials/header.ejs %>
                 <% include ./partials/hero.ejs %>
                 <div class="body">
+                    <div class="sidebar">
+                        <aside>
+                            <div class="bd">
+                                <ul class="service-subs">
+                                    <% for (var j = 0; j < sidebar[0].ul.length; j += 1) { %>
+                                        <li>
+                                            <a rel-page="<%= sidebar[0].ul[j].page%>" href="<%= sidebar[0].ul[j].url %>"><%= sidebar[0].ul[j].name %></a>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
                     <div class="content subpages">
                         <main>
-                            <% include ./partials/subnav.ejs %>
-
                             <section class="subpage 24h">
                                 <h2>急診專線：<a href="tel:02-85092579">02-85092579</a></h2>
-                                <% page = roundClock; subNav = '24h'; %>
+                                <% page = roundClock; %>
                                 <% include ./partials/content.ejs %>
                                 <iframe
                                   frameborder="0"
@@ -24,17 +35,81 @@
                             </section>
 
                             <section class="subpage divisions">
-                                <% page = divisions; subNav = 'divisions'; %>
-                                <% include ./partials/content.ejs %>
+                                <div class="subnav">
+                                    <nav>
+                                        <ul>
+                                            <% for (var i = 0; i < divisions.content.length; i += 1) { %>
+                                                <li>
+                                                    <a href="./service.html#divisions?div=<%= i %>">
+                                                        <%= divisions.content[i].name %>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <ul>
+                                <%
+                                    var doctors = people.content;
+                                    var divisionNames = divisions.content;
+                                    var doctorsByDivisions = [];
+                                    var i;
+                                    var j;
+                                    var k;
+                                    var placeholder;
+
+                                    for (i = 0; i < divisionNames.length; i += 1) {
+                                        placeholder = [];
+                                        for (j = 0; j < doctors.length; j += 1) {
+                                            for (k = 0; k < doctors[j].domains.length; k += 1) {
+                                                if (doctors[j].domains[k] === divisionNames[i].name) {
+                                                    placeholder.push(doctors[j]);
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        doctorsByDivisions.push(placeholder);
+                                    }
+                                %>
+                                <% for (var i = 0; i < divisions.content.length; i += 1) { %>
+                                    <li class="division-li">
+                                        <h3><%= divisions.content[i].name %></h3>
+                                        <% page = divisions.content[i]; %>
+                                        <% include ./partials/content.ejs %>
+                                        <h4><%= divisions.content[i].name %>醫師</h4>
+                                        <ul class="div-doctors">
+                                            <% for (var j = 0; j < doctorsByDivisions[i].length; j += 1) { %>
+                                            <li class="Cf">
+                                                <div class="hd">
+                                                    <a class="toggle-resume" href=""><%= doctorsByDivisions[i][j].name %></a>
+                                                </div>
+                                                <div class="bd hide">
+                                                    <div class="pic">
+                                                        <img src="<%= doctorsByDivisions[i][j].image %>" />
+                                                    </div>
+                                                    <div class="resume">
+                                                        <ul>
+                                                            <% for (var k = 0; k < doctorsByDivisions[i][j].resume.length; k += 1) { %>
+                                                                <li><%= doctorsByDivisions[i][j].resume[k] %></li>
+                                                            <% } %>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <% } %>
+                                        </ul>
+                                    </li>
+                                <% } %>
+                                </ul>
+                                <a href="./images/calendar.jpg"><img src="./images/calendar.jpg" /></a>
                             </section>
 
                             <section class="subpage beyond-dog-cat">
-                                <% page = beyondDogCat; subNav = 'beyond-dog-cat'; %>
+                                <% page = beyondDogCat; %>
                                 <% include ./partials/content.ejs %>
                             </section>
                         </main>
                     </div>
-                    <% include ./partials/sidebar.ejs %>
                 </div>
                 <% include ./partials/footer.ejs %>
             </div>
