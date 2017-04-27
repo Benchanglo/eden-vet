@@ -1,6 +1,6 @@
 'use strict';
 
-var async = require('async');
+//var async = require('async');
 var base64 = require('gulp-base64');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
