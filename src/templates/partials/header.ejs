@@ -3,11 +3,12 @@
         <div class="nav">
             <nav>
                 <ul>
-                    <% if (pageName === 'people' || pageName === 'schedule') {
+                    <%
                         var pageNameOrg = pageName;
-
-                        pageName = 'index';
-                    } %>
+                        if (pageName === 'people' || pageName === 'schedule') {
+                            pageName = 'index';
+                        }
+                    %>
                     <% for (var i = 0; i < nav.length; i += 1) { %>
                         <li>
                             <a data-pagename="<%= nav[i].page %>" href="<%= nav[i].url %>"
