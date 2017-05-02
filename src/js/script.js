@@ -189,6 +189,11 @@ var app = {
                 selectedSubpageIndex = 0;
                 window.history.pushState({}, document.title, app.params.baseUrl);
             }
+            for (i = 0; i < app.doms.navs.length; i += 1) {
+                if (app.doms.navs[i].dataset.pagename === 'service-' + anchorName) {
+                    app.doms.navs[i].className = 'selected';
+                }
+            }
             selectSubpage(selectedSubpage, selectedSubpageIndex);
         };
 
@@ -214,14 +219,20 @@ var app = {
         var mapLink = document.getElementsByClassName('mapLink');
         var infoMobile = document.getElementsByClassName('info-mobile');
         var mapCloseBtn = document.querySelector('.mapOverlay .overlay-close');
+        var i;
+        var bindLinkEvent = function (obj) {
+            obj.addEventListener('click', function (e) {
+                e.preventDefault();
+                toggleMap(document.body, 'overlay');
+            });
+        };
 
-        mapLink[0].addEventListener('click', function () {
-            toggleMap(document.body, 'overlay');
-        });
-        infoMobile[0].addEventListener('click', function (e) {
-            e.preventDefault();
-            toggleMap(document.body, 'overlay');
-        });
+        for (i = 0; i < mapLink.length; i +=1) {
+            bindLinkEvent(mapLink[i]);
+        }
+        for (i = 0; i < infoMobile.length; i +=1) {
+            bindLinkEvent(infoMobile[i]);
+        }
         mapCloseBtn.addEventListener('click', function () {
             toggleMap(document.body, 'overlay');
         });
@@ -262,6 +273,7 @@ var app = {
             app.doms.divisionLi = document.getElementsByClassName('division-li');
             app.doms.sidebars = document.querySelectorAll('.service-subs li a');
             app.doms.toggleResume = document.getElementsByClassName('toggle-resume');
+            app.doms.navs = document.querySelectorAll('.header .nav a');
             app.params.subNavClassNameOrg = app.doms.subnavs[0].className;
             app.params.divisionLiClassNameOrg = app.doms.divisionLi[0].className;
             app.bindSubpage();

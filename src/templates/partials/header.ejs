@@ -5,7 +5,7 @@
                 <ul>
                     <% for (var i = 0; i < nav.length; i += 1) { %>
                         <li>
-                            <a href="<%= nav[i].url %>"
+                            <a data-pagename="<%= nav[i].page %>" href="<%= nav[i].url %>"
                                 <% if (pageName === nav[i].page) { %>class="selected"<% } %>
                             >
                                 <%= nav[i].name %>
