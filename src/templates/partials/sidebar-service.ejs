@@ -1,0 +1,18 @@
+<aside>
+    <div class="bd">
+        <ul class="service-subs">
+            <% for (var j = 0; j < sidebar[0].ul.length; j += 1) { %>
+                <li>
+                    <a
+                        <% if (sidebar[0].ul[j].page === pageName) { %>
+                            class="selected"
+                        <% } %>
+                        rel-page="<%= sidebar[0].ul[j].page%>"
+                        href="<%= sidebar[0].ul[j].url %>">
+                        <%= sidebar[0].ul[j].name %>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</aside>

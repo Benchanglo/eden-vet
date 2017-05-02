@@ -14,7 +14,7 @@ var app = {
         var bindSelectBtnEvent = function (item, index) {
             item.addEventListener('click', function (e) {
                 e.preventDefault();
-                selectDomain(index, e.target.getAttribute('href'));
+                selectDomain(index, e.target.getAttribute('href'), true);
             });
         };
         var filterDomain = function (category) {
@@ -44,9 +44,7 @@ var app = {
                 }
             }
         };
-        var selectDomain = function (index, anchor) {
-            console.log('domainIndex: ', index);
-            console.log('anchor: ', anchor);
+        var selectDomain = function (index, anchor, toPush) {
             var i;
             var domainName = app.doms.domainBtns[index].innerText;
             var domainBtns = app.doms.domainBtns;
@@ -63,7 +61,9 @@ var app = {
                 } else {
                     filterDomain(domainName);
                 }
-                window.history.pushState({}, document.title, app.params.baseUrl + anchor);
+                if (toPush) {
+                    window.history.pushState({}, document.title, app.params.baseUrl + anchor);
+                }
             }
         };
         var selectOnLoad = function () {
@@ -83,6 +83,9 @@ var app = {
         for (i = 0; i < app.doms.domainBtns.length; i += 1) {
             bindSelectBtnEvent(app.doms.domainBtns[i], i);
         }
+        window.onpopstate = function () {
+            selectOnLoad();
+        };
         selectOnLoad();
     },
     bindSubpage: function () {
@@ -102,7 +105,7 @@ var app = {
         var bindSelectDivEvent = function (item, index) {
             item.addEventListener('click', function (e) {
                 e.preventDefault();
-                selectDiv(index);
+                selectDiv(index, true);
             });
 
         };
@@ -121,37 +124,9 @@ var app = {
                 bd.className = 'Cf show';
             }
         };
-        var selectSubpage = function (className, index) {
+        var selectDiv = function (index, toPush) {
             var i;
-            var divQuery = window.location.href.indexOf('?div=');
 
-            for (i = 0; i < app.doms.subpages.length; i += 1) {
-                if (app.doms.subpages[i].className.indexOf(className) > 0) {
-                    app.doms.subpages[i].style.display = 'block';
-                } else {
-                    app.doms.subpages[i].style.display = null;
-                }
-            }
-            for (i = 0; i < app.doms.sidebars.length; i += 1) {
-                if (i === index) {
-                    app.doms.sidebars[i].className = 'selected';
-
-                } else {
-                    app.doms.sidebars[i].className = '';
-                }
-            }
-            if (className === 'divisions') {
-                if (divQuery < 0 || divQuery >= app.doms.subnavs.length - 1) {
-                    divQuery = 0;
-                }
-                selectDiv(divQuery);
-                
-            } else {
-                window.history.pushState({}, document.title, app.params.baseUrl + '#' + className);
-            }
-        };
-        var selectDiv = function (index) {
-            var i;
             for (i = 0; i < app.doms.subnavs.length; i += 1) {
                 if (i === index) {
                     app.doms.subnavs[i].className = app.params.subNavClassNameOrg + ' selected';
@@ -160,53 +135,40 @@ var app = {
                     app.doms.subnavs[i].className = app.params.subNavClassNameOrg;
                     app.doms.divisionLi[i].className = app.params.divisionLiClassNameOrg + ' hide';
                 }
-                window.history.pushState({}, document.title, app.params.baseUrl + '#divisions?div=' + index);
+            }
+            if (toPush) {
+                window.history.pushState({}, document.title, app.params.baseUrl + '?div=' + index);
             }
         };
-        var selectOnLoad = function () {
+        var selectByUrl = function () {
             var url = window.location.href;
-            var anchorIndex = url.indexOf('#');
-            var anchorName;
-            var i;
-            var selectedSubpage;
-            var selectedSubpageIndex;
-            var firstItemClassNames;
+            var divQuery = url.indexOf('?div=');
 
-            app.params.baseUrl = url.substring(0, anchorIndex);
-            if (anchorIndex > 0) {
-                anchorName = url.substring(url.indexOf('#') + 1);
-                for (i = 0; i < app.doms.subpages.length; i += 1) {
-                    if (app.doms.subpages[i].className.indexOf(anchorName) > 0) {
-                        selectedSubpage = anchorName;
-                        selectedSubpageIndex = i;
-                    }
-                }
+            app.params.baseUrl = url.substring(0, url.indexOf('.html') + 5);
+            if (divQuery < 0) {
+                divQuery = 0;
+            } else {
+                divQuery = parseInt(url.substring(divQuery + 5));
             }
-            // invalid anchor, redirect to basepage
-            if (!selectedSubpage) {
-                firstItemClassNames = app.doms.subpages[0].className.split(' ');
-                selectedSubpage = firstItemClassNames[firstItemClassNames.length - 1];
-                selectedSubpageIndex = 0;
-                window.history.pushState({}, document.title, app.params.baseUrl);
-            }
-            for (i = 0; i < app.doms.navs.length; i += 1) {
-                if (app.doms.navs[i].dataset.pagename === 'service-' + anchorName) {
-                    app.doms.navs[i].className = 'selected';
-                }
-            }
-            selectSubpage(selectedSubpage, selectedSubpageIndex);
+            selectDiv(divQuery);
         };
 
-        for (i = 0; i < app.doms.sidebars.length; i += 1) {
-            bindSelectSubpageEvent(app.doms.sidebars[i], i);
-        }
         for (i = 0; i < app.doms.subnavs.length; i += 1) {
             bindSelectDivEvent(app.doms.subnavs[i], i);
         }
+
         for (i = 0; i < app.doms.toggleResume.length; i += 1) {
             bindToggleResumeEvent(app.doms.toggleResume[i]);
         }
-        selectOnLoad();
+        window.onpopstate = function () {
+            selectByUrl();
+        };
+        selectByUrl();
+    },
+    highlightSidebar: function () {
+        for (i = 0; i < app.doms.sidebars.length; i += 1) {
+            bindSelectSubpageEvent(app.doms.sidebars[i], i);
+        }
     },
     bindMapToggle: function () {
         var toggleMap = function (target, className) {
@@ -267,13 +229,10 @@ var app = {
         }
         //service
         page = document.getElementsByClassName('page')[0];
-        if (page.className.indexOf('service') > 0) {
-            app.doms.subpages = document.getElementsByClassName('subpage');
+        if (page.className.indexOf('divisions') > 0) {
             app.doms.subnavs = document.querySelectorAll('.subnav li a');
             app.doms.divisionLi = document.getElementsByClassName('division-li');
-            app.doms.sidebars = document.querySelectorAll('.service-subs li a');
             app.doms.toggleResume = document.getElementsByClassName('toggle-resume');
-            app.doms.navs = document.querySelectorAll('.header .nav a');
             app.params.subNavClassNameOrg = app.doms.subnavs[0].className;
             app.params.divisionLiClassNameOrg = app.doms.divisionLi[0].className;
             app.bindSubpage();

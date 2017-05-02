@@ -23,10 +23,9 @@ var uglify = require('gulp-uglify');
 
 var pages = [
     'index',
-    'service',
     'people',
     'schedule',
-    '24h',
+    'er',
     'divisions',
     'beyond-dog-cat'
 ];

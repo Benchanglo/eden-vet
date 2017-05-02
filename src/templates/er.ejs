@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <% var page = er; var pageName = 'er'; %>
+    <% include ./partials/head.ejs %>
+    <body>
+        <div class="page service emergency-room">
+            <div class="wrap">
+                <% include ./partials/header.ejs %>
+                <% include ./partials/hero.ejs %>
+                <div class="body">
+                    <div class="sidebar">
+                        <% include ./partials/sidebar-service.ejs %>
+                    </div>
+                    <div class="content">
+                        <main>
+                            <section class="24h">
+                                <h2>急診專線：<a href="tel:02-85092579">02-85092579</a></h2>
+                                <% include ./partials/content.ejs %>
+                                <iframe
+                                  frameborder="0"
+                                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAf8MO-UPLgMT5_R0IRKYehAo_E7SMjMA8
+                                    &q=place_id:ChIJFwTtdQ-sQjQRDdUv6eFR9Zo&center=25.0801111,121.5499876&zoom=16.25&language=zh-TW" allowfullscreen>
+                                </iframe>
+                            </section>
+                        </main>
+                    </div>
+                </div>
+                <% include ./partials/footer.ejs %>
+            </div>
+        </div>
+        <% include ./partials/map.ejs %>
+    </body>
+    <% include ./partials/scripts.ejs %>
+</html>
