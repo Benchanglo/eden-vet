@@ -1,17 +1,24 @@
 <aside>
-    <div class="bd">
-        <ul class="service-subs">
-            <% for (var j = 0; j < sidebar[0].ul.length; j += 1) { %>
-                <li>
-                    <a
-                        <% if (sidebar[0].ul[j].page === pageName) { %>
-                            class="selected"
-                        <% } %>
-                        href="<%= sidebar[0].ul[j].url %>">
-                        <%= sidebar[0].ul[j].name %>
-                    </a>
-                </li>
-            <% } %>
-        </ul>
-    </div>
+    <section>
+        <div class="bd">
+            <ul class="service-subs">
+                <% for (var j = 0; j < sidebar[0].ul.length; j += 1) { %>
+                    <li>
+                        <a
+                            <% if (sidebar[0].ul[j].page === pageName) { %>
+                                class="selected"
+                            <% } %>
+                            href="<%= sidebar[0].ul[j].url %>">
+                            <%= sidebar[0].ul[j].name %>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div class="bd">
+            <div class="fb-page" data-href="https://www.facebook.com/EdenAnimalHosp/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/EdenAnimalHosp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/EdenAnimalHosp/">Facebook專頁</a></blockquote></div>
+        </div>
+    </section>
 </aside>
