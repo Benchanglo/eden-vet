@@ -236,6 +236,8 @@ var app = {
             app.params.subNavClassNameOrg = app.doms.subnavs[0].className;
             app.params.divisionLiClassNameOrg = app.doms.divisionLi[0].className;
             app.bindSubpage();
+        } else if (page.className.indexOf('beyond-dog-cat') > 0) {
+            app.doms.toggleResume = document.getElementsByClassName('toggle-resume');
         }
     }
 };

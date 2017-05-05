@@ -39,7 +39,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/treatment.jpg", "./images/16214.jpg"],
+        "hero": ["./images/treatment.jpg", "./images/facilities2.jpg", "./images/dog1.jpg", "./images/cat1.jpg"],
         "content": [
             {"h2": "毛小孩的五星級照護"},
             {"p": "伊甸動物醫院成立的理念，是提供毛小孩最完善的治療與休養環境，希望在我們的悉心照護下，大家家裡的寶貝可以迅速恢復健康。"},
@@ -52,30 +52,6 @@
             {
                 "h3": "門診時間",
                 "a": "./schedule.html"
-            }
-        ]
-    },
-    "service": {
-        "head": {
-            "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 服務項目",
-            "description": "eden-vet desc"
-        },
-        "hero": ["./images/facilities1.jpg"],
-        "subnav": [
-            {
-                "name": "24小時急診",
-                "page": "24h",
-                "url": "#24h"
-            },
-            {
-                "name": "各科專科",
-                "page": "divisions",
-                "url": "#divisions"
-            },
-            {
-                "name": "非犬貓專科",
-                "page": "beyond-dog-cat",
-                "url": "#beyond-dog-cat"
             }
         ]
     },
@@ -293,14 +269,14 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 門診時間",
             "description": "eden-vet desc"
         },
-        "hero": ["images/office.jpg"]
+        "hero": ["images/cat3.jpg", "images/office.jpg"]
     },
     "er": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 24小時急診",
             "description": "eden-vet desc"
         },
-        "hero": ["./images/facilities1.jpg"],
+        "hero": ["./images/night.jpg", "./images/dog2.jpg", "./images/facilities3.jpg", "./images/cat2.jpg"],
         "content": [
             {"h3": "台北市中山區北安路554巷33號"},
             {"p": "為了讓您的寶貝能受到更完善的照護，伊甸動物醫院也提供24小時急診加護。院內24小時的急診與住院醫師駐守待命，兼顧急診及住院的病患。"},
@@ -342,7 +318,10 @@
             {
                 "name": "腎臟科",
                 "content": [
-                    {"p": "針對腎臟疾病的專科，本院具備專業醫師，可提供洗腎等治療，確保家中毛小孩的生活品質。"}
+                    {"p": "此時此刻，還在為您毛寶貝的「腎」而擔憂嗎？無論是急性腎衰竭、慢性尿毒症、急性藥物中毒或各種原因導致腎臟受損(如，胰臟炎)，皆有機會透過本院的「24小時的血漿置換與血液透析中心」進行治療！"},
+                    {"p":"本中心有2大醫療服務項目：1.「血液透析」（洗腎）：讓毛小孩跟人一樣利用專業儀器，將受汙染的血液變乾淨後再送回體內。讓急性腎衰竭不再是一個絕望的疾病，多一個治療選擇並提高復原的機會。2.「血漿置換」：利用專業儀器保留患者血球，並以捐贈者乾淨的血漿替換患者含毒素的血漿。"},
+                    {"p": "當然，光有專業儀器是不夠的！本院王臆晴醫師及林懿雙醫師對於腎臟疾病及血液透析、血漿置換方面，不僅深入研究，還有豐富臨床經驗，是全台少數擁有此項技術的腎臟科醫師！"},
+                    {"p":"若家中毛寶貝出現腎臟相關問題或有其他疑問，歡迎來電諮詢。"}
                 ]
             },
             {
@@ -382,7 +361,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 各科專科",
             "description": "eden-vet desc"
         },
-        "hero": ["images/office.jpg"],
+        "hero": ["images/beyond-dog-cat.jpg", "images/office.jpg", "./images/16214.jpg"],
         "content": [
             {"p": "除了貓與狗之外，本院也聘任了犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢。"}
         ]
