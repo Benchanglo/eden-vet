@@ -126,11 +126,12 @@ var app = {
         };
         var selectDiv = function (index, toPush) {
             var i;
+            var revealedToggles;
 
             for (i = 0; i < app.doms.subnavs.length; i += 1) {
                 if (i === index) {
                     app.doms.subnavs[i].className = app.params.subNavClassNameOrg + ' selected';
-                    app.doms.divisionLi[i].className = app.params.divisionLiClassNameOrg;
+                    app.doms.divisionLi[i].className = app.params.divisionLiClassNameOrg + ' show';
                 } else {
                     app.doms.subnavs[i].className = app.params.subNavClassNameOrg;
                     app.doms.divisionLi[i].className = app.params.divisionLiClassNameOrg + ' hide';
@@ -138,6 +139,10 @@ var app = {
             }
             if (toPush) {
                 window.history.pushState({}, document.title, app.params.baseUrl + '?div=' + index);
+            }
+            revealedToggles = document.querySelectorAll('.division-li.show .toggle-resume');
+            if (revealedToggles.length <= 4) {
+                app.showCollapsedItem(revealedToggles);
             }
         };
         var selectByUrl = function () {
@@ -152,22 +157,31 @@ var app = {
             }
             selectDiv(divQuery);
         };
+        var revealedToggles;
 
-        for (i = 0; i < app.doms.subnavs.length; i += 1) {
-            bindSelectDivEvent(app.doms.subnavs[i], i);
+        if (app.doms.subnavs) {
+            for (i = 0; i < app.doms.subnavs.length; i += 1) {
+                bindSelectDivEvent(app.doms.subnavs[i], i);
+            }
+            window.onpopstate = function () {
+                selectByUrl();
+            }
+            selectByUrl();
         }
-
         for (i = 0; i < app.doms.toggleResume.length; i += 1) {
             bindToggleResumeEvent(app.doms.toggleResume[i]);
-        }
-        window.onpopstate = function () {
-            selectByUrl();
         };
-        selectByUrl();
     },
     highlightSidebar: function () {
         for (i = 0; i < app.doms.sidebars.length; i += 1) {
             bindSelectSubpageEvent(app.doms.sidebars[i], i);
+        }
+    },
+    showCollapsedItem: function (items) {
+        var i;
+
+        for (i = 0; i < items.length; i += 1) {
+            items[i].parentNode.parentNode.className = 'Cf show';
         }
     },
     bindMapToggle: function () {
@@ -236,8 +250,10 @@ var app = {
             app.params.subNavClassNameOrg = app.doms.subnavs[0].className;
             app.params.divisionLiClassNameOrg = app.doms.divisionLi[0].className;
             app.bindSubpage();
-        } else if (page.className.indexOf('beyond-dog-cat') > 0) {
+        } else if (page.className.indexOf('beyondDogCat') > 0) {
             app.doms.toggleResume = document.getElementsByClassName('toggle-resume');
+            app.bindSubpage();
+            app.showCollapsedItem(app.doms.toggleResume);
         }
     }
 };

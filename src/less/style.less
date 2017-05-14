@@ -468,11 +468,18 @@ body {
         font-size: 24px;
         font-weight: 300;
         color: #555;
+        margin: 20px 0;
+        &.er-phone {
+            margin: 20px 0 10px 0;
+        }
     }
     h3 {
         font-size: 20px;
         font-weight: 300;
         color: #555;
+        &.er-address {
+            margin: 10px 0 20px 0;
+        }
     }
     p {
 
@@ -1045,6 +1052,7 @@ and (min-width : 740px) {
                 a {
                     font-size: 13px;
                     padding: 8px 0;
+                    letter-spacing: 0;
                 }
             }
             &:after {
@@ -1203,6 +1211,7 @@ and (min-width : 740px) {
         }
         .service {
             .sidebar {
+                display: none;
                 width: 100%;
                 border-bottom: 1px solid #ddd;
                 .service-subs {

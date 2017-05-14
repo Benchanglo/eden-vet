@@ -10,8 +10,8 @@
     "keywords": [],
     "main": "server.js",
     "scripts": {
-        "build": "mkdir ./src/rendered; gulp build",
-        "build-dev": "mkdir ./src/rendered; gulp build-dev",
+        "build": "mkdir -p ./src/rendered; gulp build",
+        "build-dev": "gulp build-dev",
         "image": "gulp images-min",
         "lint": "gulp lint"
     },
