@@ -215,6 +215,12 @@ body {
     border: 6px solid #fff;
     border-radius: 30px;
     background: #fff;
+    img {
+        opacity: 0;
+        &:nth-child(1) {
+            opacity: 1;
+        }
+    }
     &.imgs-2 {
         img {
             &:nth-child(2) {
@@ -751,6 +757,21 @@ body {
             }
         }
     }
+    .resume {
+        margin: 0 0 10px 0;
+        li {
+            position: relative;
+            padding: 0 0 0 10px;
+            &:before {
+                position: relative;
+                left: 0;
+                display: inline-block;
+                content: "• ";
+                font-size: 13px;
+                margin: 0 5px 0 0;
+            };
+        }
+    }
 }
 .people-doc {
     margin: 0 0 20px 0;
@@ -1019,6 +1040,9 @@ and (min-width : 740px) {
                 width: 140px;
             }
         }
+        .resume {
+            font-size: 15px;
+        }
     }
     .schedule {
         .content, .sidebar {
@@ -1102,7 +1126,7 @@ and (min-width : 740px) {
             }
         }
         .hero {
-            height: 180px;
+            height: 200px;
             img {
                 left: -5%;
                 width: 110%;
@@ -1205,7 +1229,15 @@ and (min-width : 740px) {
                 float: right;
                 margin: 10px 0 0 10px;
                 img {
-                    width: 120px;
+                    width: 100px;
+                }
+            }
+            .resume {
+                font-size: 15px;
+                li {
+                    &:before {
+                        position: absolute;
+                    }
                 }
             }
         }

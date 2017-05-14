@@ -165,12 +165,12 @@ var app = {
             }
             window.onpopstate = function () {
                 selectByUrl();
-            }
+            };
             selectByUrl();
         }
         for (i = 0; i < app.doms.toggleResume.length; i += 1) {
             bindToggleResumeEvent(app.doms.toggleResume[i]);
-        };
+        }
     },
     highlightSidebar: function () {
         for (i = 0; i < app.doms.sidebars.length; i += 1) {
