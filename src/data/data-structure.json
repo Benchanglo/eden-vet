@@ -37,7 +37,7 @@
     "index": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護",
-            "description": "eden-vet desc"
+            "description": "台北地區貓狗等動物的專業醫療團隊，提供急診及病房照護等服務"
         },
         "hero": ["./images/treatment.jpg", "./images/facilities2.jpg", "./images/dog1.jpg", "./images/cat1.jpg"],
         "content": [
@@ -50,7 +50,7 @@
     "people": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 醫師團隊",
-            "description": "eden-vet desc"
+            "description": "台北地區貓狗等動物的專業醫療團隊，提供急診及病房照護等服務"
         },
         "hero": ["./images/16179.jpg", "./images/15884.jpg", "./images/16075.jpg", "./images/15640.jpg"],
         "content": [
@@ -259,14 +259,14 @@
     "schedule": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 門診時間",
-            "description": "eden-vet desc"
+            "description": "台北地區貓狗等動物的專業醫療團隊，提供急診及病房照護等服務"
         },
         "hero": ["images/cat3.jpg", "images/office.jpg"]
     },
     "er": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 24小時急診",
-            "description": "eden-vet desc"
+            "description": "台北地區貓狗等動物的專業醫療團隊，提供急診及病房照護等服務"
         },
         "hero": ["./images/night.jpg", "./images/dog2.jpg", "./images/facilities3.jpg", "./images/cat2.jpg"],
         "content": [
@@ -277,7 +277,7 @@
     "divisions": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 各科專科",
-            "description": "eden-vet desc"
+            "description": "台北犬貓各科專科，皮膚病跳蚤、骨折脫臼、病毒細菌寄生蟲感染、惡性良性腫瘤、洗腎"
         },
         "hero": ["./images/16179.jpg", "./images/15884.jpg", "./images/16075.jpg", "./images/15640.jpg"],
         "content": [
@@ -318,7 +318,7 @@
             {
                 "name": "麻醉科",
                 "content": [
-                    {"p": "blah blah blah。"}
+                    {"p": "本院特別聘任具備麻醉專業的醫師，提供可靠且完善的術前準備。"}
                 ]
             },
             {
@@ -344,11 +344,11 @@
     "beyondDogCat": {
         "head": {
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 各科專科",
-            "description": "eden-vet desc"
+            "description": "台北地區犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢，以及急診與病房服務"
         },
         "hero": ["images/beyond-dog-cat.jpg", "images/office.jpg", "./images/16214.jpg"],
         "content": [
-            {"p": "除了貓與狗之外，本院也聘任了犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢。"},
+            {"p": "本院聘任了犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢。"},
             {"h4": "急診小常識"},
             {"p": "當您觀察到家中的小寶貝有如下症狀時，敬請儘速就醫："}
         ],
