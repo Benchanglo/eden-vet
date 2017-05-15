@@ -1084,11 +1084,14 @@ and (min-width : 740px) {
         }
         .nav {
             li {
-                width: 24%;
+                &:nth-child(1) {
+                    width: 21%
+                }
+                width: 25%;
                 a {
+                    letter-spacing: 1px;
                     font-size: 13px;
                     padding: 8px 0;
-                    letter-spacing: 0;
                 }
             }
             &:after {
