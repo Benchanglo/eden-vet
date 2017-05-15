@@ -569,7 +569,8 @@ body {
         }
     }
 }
-.toggle-resume {
+.toggle-resume,
+.toggle-article {
     color: @color-eden;
     background: none;
     border: 0;
@@ -727,6 +728,9 @@ body {
         }
         .toggle {
             padding: 0 5px;
+            &:link, &:visited, &:hover, &:active {
+                color: @color-eden;
+            }
             &:before {
                 display: inline-block;
                 content: " ";
@@ -743,9 +747,6 @@ body {
         }
         &.show {
             .toggle {
-                &:link, &:visited, &:hover, &:active {
-                    color: @color-eden;
-                }
                 &:before {
                    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
                    transform: rotate(90deg);
