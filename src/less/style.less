@@ -711,7 +711,8 @@ body {
         color: #efefef;
     }
 }
-.div-doctors {
+.div-doctors,
+.div-species {
     .pic {
         float: left;
         margin: 0 20px 0 0;
@@ -724,7 +725,7 @@ body {
         .bd {
             display: none;
         }
-        .toggle-resume {
+        .toggle {
             padding: 0 5px;
             &:before {
                 display: inline-block;
@@ -741,7 +742,7 @@ body {
             }
         }
         &.show {
-            .toggle-resume {
+            .toggle {
                 &:link, &:visited, &:hover, &:active {
                     color: @color-eden;
                 }
@@ -753,15 +754,18 @@ body {
             .bd {
                 display: block;
                 border-top: 1px solid @color-eden;
-                padding: 10px 0 0 0;
+                padding: 5px 0 0 0;
+                p {
+                    margin: 0;
+                }
             }
         }
     }
-    .resume {
+    .items {
         margin: 0 0 10px 0;
         li {
             position: relative;
-            padding: 0 0 0 10px;
+            padding: 0 0 5px 10px;
             &:before {
                 position: relative;
                 left: 0;
@@ -1034,14 +1038,20 @@ and (min-width : 740px) {
             }
         }
     }
-    .div-doctors {
+    .div-doctors,
+    .div-species {
         .pic {
             img {
                 width: 140px;
             }
         }
-        .resume {
+        .items {
             font-size: 15px;
+        }
+        .bd {
+            p {
+                font-size: 15px;
+            }
         }
     }
     .schedule {
@@ -1224,7 +1234,8 @@ and (min-width : 740px) {
                 }
             }
         }
-        .div-doctors {
+        .div-doctors,
+        .div-species {
             .pic {
                 float: right;
                 margin: 10px 0 0 10px;
@@ -1232,12 +1243,17 @@ and (min-width : 740px) {
                     width: 100px;
                 }
             }
-            .resume {
+            .items {
                 font-size: 15px;
                 li {
                     &:before {
                         position: absolute;
                     }
+                }
+            }
+            .bd {
+                p {
+                    font-size: 15px;
                 }
             }
         }

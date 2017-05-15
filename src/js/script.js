@@ -171,6 +171,11 @@ var app = {
         for (i = 0; i < app.doms.toggleResume.length; i += 1) {
             bindToggleResumeEvent(app.doms.toggleResume[i]);
         }
+        if (app.doms.toggleArticle) {
+            for (i = 0; i < app.doms.toggleArticle.length; i += 1) {
+                bindToggleResumeEvent(app.doms.toggleArticle[i]);
+            }
+        }
     },
     highlightSidebar: function () {
         for (i = 0; i < app.doms.sidebars.length; i += 1) {
@@ -252,6 +257,7 @@ var app = {
             app.bindSubpage();
         } else if (page.className.indexOf('beyondDogCat') > 0) {
             app.doms.toggleResume = document.getElementsByClassName('toggle-resume');
+            app.doms.toggleArticle = document.getElementsByClassName('toggle-article');
             app.bindSubpage();
             app.showCollapsedItem(app.doms.toggleResume);
         }

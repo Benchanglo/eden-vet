@@ -64,13 +64,13 @@
                                             <% for (var j = 0; j < doctorsByDivisions[i].length; j += 1) { %>
                                             <li class="Cf">
                                                 <div class="hd">
-                                                    <a class="toggle-resume" href=""><%= doctorsByDivisions[i][j].name %></a>
+                                                    <a class="toggle toggle-resume" href=""><%= doctorsByDivisions[i][j].name %></a>
                                                 </div>
                                                 <div class="bd hide">
                                                     <div class="pic">
                                                         <img src="<%= doctorsByDivisions[i][j].image %>" />
                                                     </div>
-                                                    <div class="resume">
+                                                    <div class="items">
                                                         <ul>
                                                             <% for (var k = 0; k < doctorsByDivisions[i][j].resume.length; k += 1) { %>
                                                                 <li><%= doctorsByDivisions[i][j].resume[k] %></li>

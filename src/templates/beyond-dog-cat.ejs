@@ -19,11 +19,9 @@
                                     var doctors = people.content;
                                     var divisionName = '非犬貓';
                                     var nonDogCat = [];
-                                    var i;
-                                    var j;
 
-                                    for (i = 0; i < doctors.length; i += 1) {
-                                        for (j = 0; j < doctors[i].domains.length; j += 1) {
+                                    for (var i = 0; i < doctors.length; i += 1) {
+                                        for (var j = 0; j < doctors[i].domains.length; j += 1) {
                                             if (doctors[i].domains[j] === divisionName) {
                                                 nonDogCat.push(doctors[i]);
                                                 break;
@@ -31,18 +29,34 @@
                                         }
                                     }
                                 %>
+                                <ul class="div-species">
+                                    <% for (var i = 0; i < page.articles.length; i += 1) { %>
+                                    <li class="Cf">
+                                        <div class="hd">
+                                            <a class="toggle toggle-article" href=""><%= page.articles[i].title %></a>
+                                        </div>
+                                        <div class="bd hide">
+                                        <ul class="items">
+                                            <% for (var j = 0; j < page.articles[i].content.length; j += 1) { %>
+                                                <li><%= page.articles[i].content[j] %></li>
+                                            <% } %>
+                                        </ul>
+                                        </div>
+                                    </li>
+                                    <% } %>
+                                </ul>
                                 <h4><%= divisionName %>醫師</h4>
                                 <ul class="div-doctors">
                                     <% for (var i = 0; i < nonDogCat.length; i += 1) { %>
                                     <li class="Cf">
                                         <div class="hd">
-                                            <a class="toggle-resume" href=""><%= nonDogCat[i].name %></a>
+                                            <a class="toggle toggle-resume" href=""><%= nonDogCat[i].name %></a>
                                         </div>
                                         <div class="bd hide">
                                             <div class="pic">
                                                 <img src="<%= nonDogCat[i].image %>" />
                                             </div>
-                                            <div class="resume">
+                                            <div class="items">
                                                 <ul>
                                                     <% for (var j = 0; j < nonDogCat[i].resume.length; j += 1) { %>
                                                         <li><%= nonDogCat[i].resume[j] %></li>
