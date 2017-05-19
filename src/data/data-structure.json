@@ -39,7 +39,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護",
             "description": "台北地區貓狗等動物的專業醫療團隊，提供急診及病房照護等服務"
         },
-        "hero": ["./images/treatment.jpg", "./images/facilities2.jpg", "./images/dog1.jpg", "./images/cat1.jpg"],
+        "hero": ["./images/treatment.jpg", "./images/kidney-specialists.jpg", "./images/dog1.jpg", "./images/cat1.jpg"],
         "content": [
             {"h2": "毛小孩的五星級照護"},
             {"p": "伊甸動物醫院成立的理念，是提供毛小孩最完善的治療與休養環境，希望在我們的悉心照護下，大家家裡的寶貝可以迅速恢復健康。"},
@@ -346,7 +346,7 @@
             "title": "台北24小時動物急診 伊甸動物醫院 貓狗等各種動物全天候照護 | 各科專科",
             "description": "台北地區犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢，以及急診與病房服務"
         },
-        "hero": ["images/beyond-dog-cat.jpg", "images/office.jpg", "./images/16214.jpg"],
+        "hero": ["images/beyond-dog-cat.jpg", "images/office.jpg", "./images/16214.jpg", "./images/facilities2.jpg"],
         "content": [
             {"p": "本院聘任了犬貓之外的兔、貂、豬、鳥、猴、魚、爬蟲類等門診服務及專業諮詢。"},
             {"h4": "急診小常識"},
