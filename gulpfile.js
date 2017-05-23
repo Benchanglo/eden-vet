@@ -165,6 +165,11 @@ gulp.task('template', ['jsonlint'], function (done) {
     });
 });
 
+gulp.task('copy-CNAME', function (done) {
+    return gulp.src('./src/CNAME')
+    .pipe(gulp.dest(outputPath));
+})
+
 gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
     var optsHtml = {
       conditionals: true,
@@ -182,7 +187,7 @@ gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
     .pipe(gulp.dest(outputPath));
 });
 
-gulp.task('build', ['template', 'css', 'js'], function () {
+gulp.task('build', ['template', 'css', 'js', 'copy-CNAME'], function () {
     var optsHtml = {
       conditionals: true,
       spare: true
