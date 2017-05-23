@@ -216,9 +216,13 @@ body {
     border-radius: 30px;
     background: #fff;
     img {
-        opacity: 0;
         &:nth-child(1) {
             opacity: 1;
+        }
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            opacity: 0;
         }
     }
     &.imgs-2 {
