@@ -58,7 +58,7 @@
                                     <li class="division-li">
                                         <h3><%= divisions.content[i].name %></h3>
                                         <% page = divisions.content[i]; %>
-                                        <% include ./partials/content.ejs %>
+                                        <% include ./partials/content-simple.ejs %>
                                         <h4><%= divisions.content[i].name %>醫師</h4>
                                         <ul class="div-doctors">
                                             <% for (var j = 0; j < doctorsByDivisions[i].length; j += 1) { %>
