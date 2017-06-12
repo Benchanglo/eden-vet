@@ -71,11 +71,9 @@
                                                         <img src="<%= doctorsByDivisions[i][j].image %>" />
                                                     </div>
                                                     <div class="items">
-                                                        <ul>
-                                                            <% for (var k = 0; k < doctorsByDivisions[i][j].resume.length; k += 1) { %>
-                                                                <li><%= doctorsByDivisions[i][j].resume[k] %></li>
-                                                            <% } %>
-                                                        </ul>
+                                                        <% for (var k = 0; k < doctorsByDivisions[i][j].resume.length; k += 1) { %>
+                                                            <p><%= doctorsByDivisions[i][j].resume[k] %></p>
+                                                        <% } %>
                                                     </div>
                                                 </div>
                                             </li>

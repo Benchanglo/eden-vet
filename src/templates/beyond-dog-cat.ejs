@@ -40,11 +40,11 @@
                                             <a class="toggle toggle-article" href=""><%= page.articles[i].title %></a>
                                         </div>
                                         <div class="bd hide">
-                                        <ul class="items">
+                                        <div class="items">
                                             <% for (var j = 0; j < page.articles[i].content.length; j += 1) { %>
-                                                <li><%= page.articles[i].content[j] %></li>
+                                                <p><%= page.articles[i].content[j] %></p>
                                             <% } %>
-                                        </ul>
+                                        </div>
                                         </div>
                                     </li>
                                     <% } %>

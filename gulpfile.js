@@ -99,6 +99,30 @@ gulp.task('less', ['images'], function() {
     .pipe(gulp.dest('./src/rendered'));
 });
 
+// Concat and compress CSS files in src/data/css, and generate build/production.css
+gulp.task('less-dev', ['images'], function() {
+    var opts = {
+        keepBreaks: false,
+        compatibility: 'ie8',
+        keepSpecialComments: 0
+    };
+
+    return gulp.src('./src/less/style.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(concat('production.css'))
+    .pipe(base64(base64Opts))
+    .pipe(gulp.dest('./src/rendered'));
+});
+
+gulp.task('css-dev', ['less-dev'], function () {
+    var file = './src/rendered/production.css';
+
+    return gulp.src(file)
+    .pipe(gulp.dest(outputPath));
+});
+
 gulp.task('css', ['less'], function () {
     var file = './src/rendered/production.css';
 
@@ -170,7 +194,7 @@ gulp.task('copy-CNAME', function (done) {
     .pipe(gulp.dest(outputPath));
 })
 
-gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
+gulp.task('build-dev', ['template', 'css-dev', 'js-dev'], function () {
     var optsHtml = {
       conditionals: true,
       spare: true
@@ -183,7 +207,7 @@ gulp.task('build-dev', ['template', 'css', 'js-dev'], function () {
             /<link rel="stylesheet" href=".\/critical.css"/i
         ]
     }))
-//    .pipe(minifyHTML(optsHtml))
+    .pipe(minifyHTML(optsHtml))
     .pipe(gulp.dest(outputPath));
 });
 
