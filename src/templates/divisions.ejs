@@ -59,6 +59,14 @@
                                         <h3><%= divisions.content[i].name %></h3>
                                         <% page = divisions.content[i]; %>
                                         <% include ./partials/content-simple.ejs %>
+                                        <% if (page.links.length > 0) { %>
+                                            <h4>相關文章</h4>
+                                            <ul class="links">
+                                            <% for (var j = 0; j < page.links.length; j += 1) { %>
+                                                <li><a href="<%= page.links[j].url %>"><%= page.links[j].title %></a></li>
+                                            <% } %>
+                                            </ul>
+                                        <% } %>
                                         <h4><%= divisions.content[i].name %>醫師</h4>
                                         <ul class="div-doctors">
                                             <% for (var j = 0; j < doctorsByDivisions[i].length; j += 1) { %>
