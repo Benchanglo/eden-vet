@@ -218,15 +218,9 @@ gulp.task('build', ['template', 'css', 'js', 'copy-CNAME'], function () {
     };
     var criticalParams = {
         base: 'src/rendered',
-        src: 'index.html',
+        src: 'divisions.html',
         css: 'src/rendered/production.css',
         dimensions: [{
-          width: 320,
-          height: 480
-        },{
-          width: 480,
-          height: 500
-        },{
           width: 739,
           height: 1020
         }],
