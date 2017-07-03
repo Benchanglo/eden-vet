@@ -10,7 +10,7 @@
     "keywords": [],
     "main": "server.js",
     "scripts": {
-        "build": "mkdir -p ./src/rendered; cp ./src/critical.css .src/rendered; gulp build",
+        "build": "mkdir -p ./src/rendered; cp ./src/critical.css ./src/rendered/; gulp build",
         "build-dev": "gulp build-dev",
         "image": "gulp images-min",
         "lint": "gulp lint"
