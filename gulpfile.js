@@ -220,10 +220,8 @@ gulp.task('build', ['template', 'css', 'js', 'copy-CNAME'], function () {
         base: 'src/rendered',
         src: 'divisions.html',
         css: 'src/rendered/production.css',
-        dimensions: [{
-          width: 739,
-          height: 1020
-        }],
+        width: 739,
+        height: 1020,
         dest: 'critical.css',
         minify: true,
         extract: false,
