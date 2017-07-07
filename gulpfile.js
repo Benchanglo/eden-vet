@@ -16,7 +16,7 @@ var lint = require('gulp-jshint');
 var jsonlint = require("gulp-jsonlint");
 var less = require('gulp-less');
 var minifyCSS = require('gulp-clean-css');
-var minifyHTML = require('gulp-minify-html');
+var minifyHTML = require('gulp-htmlmin');
 var path = require('path');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
@@ -213,8 +213,7 @@ gulp.task('build-dev', ['template', 'css-dev', 'js-dev'], function () {
 
 gulp.task('build', ['template', 'css', 'js', 'copy-CNAME'], function () {
     var optsHtml = {
-      conditionals: true,
-      spare: true
+      collapseWhitespace: true
     };
     var criticalParams = {
         base: 'src/rendered',
