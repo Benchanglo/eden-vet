@@ -213,7 +213,9 @@ gulp.task('build-dev', ['template', 'css-dev', 'js-dev'], function () {
 
 gulp.task('build', ['template', 'css', 'js', 'copy-CNAME'], function () {
     var optsHtml = {
-      collapseWhitespace: true
+      caseSensitive: true,
+      collapseWhitespace: true,
+      keepClosingSlash: true
     };
     var criticalParams = {
         base: 'src/rendered',
