@@ -54,15 +54,6 @@
         "hero": ["./images/16179.jpg", "./images/15884.jpg", "./images/16075.jpg", "./images/15640.jpg"],
         "content": [
             {
-                "name": "侯佳君 獸醫師",
-                "domains": ["一般內科", "皮膚科"],
-                "image": "./images/15122l.jpg",
-                "resume": [
-                    "英國愛丁堡大學獸醫學博士",
-                    "台大獸醫學學士"
-                ]
-            },
-            {
                 "name": "王臆晴 獸醫師",
                 "domains": ["一般內科", "腎臟科"],
                 "image": "./images/15909l.jpg",
@@ -248,7 +239,7 @@
                 "resume": []
             },
             {
-                "name": "劉嘉玲 獸醫師",
+                "name": "劉嘉伶 獸醫師",
                 "image": "./images/blank.jpg",
                 "domains": ["夜間急診"],
                 "resume": []
