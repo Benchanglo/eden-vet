@@ -21,6 +21,8 @@ var path = require('path');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
+var calendarFileName
+
 var pages = [
     'index',
     'people',
@@ -40,6 +42,13 @@ var base64Opts = {
 };
 var outputPath = '../eden-vet.github.io';
 //var outputPath = '../eden-vet.github.io';
+
+var returnCalendarFileName = function () {
+  if (!calendarFileName) {
+    calendarFileName = 'cal-' + Date.now() + '.jpg'
+  }
+  return calendarFileName
+}
 
 gulp.task('clean-img', function () {
     return gulp.src(outputPath + '/images/**/*', {
@@ -73,6 +82,7 @@ gulp.task('images-min', ['copy-png'], function () {
 gulp.task('copy-calendar', ['clean-img'], function () {
     return gulp.src('./calendar.jpg')
     //.pipe(imagemin([imageminGuetzli({quality: 90})]))
+    .pipe(rename(returnCalendarFileName()))
     .pipe(gulp.dest('./src/images'));
 });
 
@@ -178,7 +188,7 @@ gulp.task('template', ['jsonlint'], function (done) {
             return;
         }
         data = JSON.parse(D);
-
+        data.calendar = returnCalendarFileName()
         return gulp.src(templateFiles)
         .pipe(ejs(data, options))
         .pipe(rename({
@@ -211,7 +221,7 @@ gulp.task('build-dev', ['template', 'css-dev', 'js-dev'], function () {
     .pipe(gulp.dest(outputPath));
 });
 
-gulp.task('build', ['template', 'css', 'js', 'copy-CNAME'], function () {
+gulp.task('build', ['css', 'js', 'template', 'copy-CNAME'], function () {
     var optsHtml = {
       caseSensitive: true,
       collapseWhitespace: true,
