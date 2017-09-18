@@ -1,4 +1,4 @@
-# eden-vet  [![Build Status](http://azai.synology.me:33333/buildStatus/icon?job=eden-vet)](http://azai.synology.me:33333/job/eden-vet/)
+# eden-vet  [![Build Status](https://travis-ci.org/eden-vet/eden-vet.svg?branch=master)](https://travis-ci.org/eden-vet/eden-vet)
 
 
 Eden-vet 網站原始碼。更新後會自動組建頁面並上傳。
