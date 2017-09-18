@@ -40,7 +40,7 @@ var base64Opts = {
 var base64Opts = {
     extensions: ['png']
 };
-var outputPath = '../eden-vet.github.io';
+var outputPath = './dist';
 //var outputPath = '../eden-vet.github.io';
 
 var returnCalendarFileName = function () {
