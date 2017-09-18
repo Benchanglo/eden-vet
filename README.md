@@ -7,7 +7,7 @@ Eden-vet 網站原始碼。更新後會自動組建頁面並上傳。
 =================
 1. 準備好新的班表，並取名為"calendar.jpg"
 
-2. 進入本頁面（https://github.com/eden-vet/eden-vet)，按右上角的[Upload files]按鈕，並將班表圖檔拉到上傳區。
+2. 進入本頁面（ https://github.com/eden-vet/eden-vet )，按右上角的[Upload files]按鈕，並將班表圖檔拉到上傳區。
 
 3. 在"Commit changes" 裡填入更新的說明（例如: 2017 4月份班表）。
 
