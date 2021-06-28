@@ -1,4 +1,4 @@
-# eden-vet  [![Build Status](https://travis-ci.org/eden-vet/eden-vet.svg?branch=master)](https://travis-ci.org/eden-vet/eden-vet)
+# eden-vet  [![Build Status](https://travis-ci.com/eden-vet/eden-vet.svg?branch=master)](https://travis-ci.com/eden-vet/eden-vet)
 
 
 Eden-vet 網站原始碼。更新後會自動組建頁面並上傳。
