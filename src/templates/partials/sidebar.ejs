@@ -1,23 +1,47 @@
 <div class="sidebar">
     <aside>
-        <% for (var i = 0; i < sidebar.length; i += 1) { %>
-            <section>
-                <div class="hd">
-                    <h3><%= sidebar[i].title %></h3>
+        <section>
+          <div class='timetable'>
+            <div class="hd">門診時間</div>
+            <div class="bd">
+              <section>
+                <div>
+                  <label>早上門診</label>
+                  <p>10:00 - 11:30</p>
                 </div>
-                <div class="bd">
-                    <% if (typeof sidebar[i].ul !== 'undefined') { %>
-                    <ul class="service-subs">
-                        <% for (var j = 0; j < sidebar[i].ul.length; j += 1) { %>
-                            <li>
-                                <a rel-page="<%= sidebar[i].ul[j].page%>" href="<%= sidebar[i].ul[j].url %>"><%= sidebar[i].ul[j].name %></a>
-                            </li>
-                        <% } %>
-                    </ul>
-                    <% } %>
+                <div>
+                  <label>下午門診</label>
+                  <p>13:00 - 16:30</p>
                 </div>
-            </section>
-        <% } %>
+                <div>
+                  <label>晚上門診</label>
+                  <p>18:00 - 20:30</p>
+                </div>
+              </section>
+            </div>
+            <div class="hd">急診時間</div>
+            <div class="bd">
+              <section>
+                <div>
+                  <p class="nolabel">24小時急診  (夜間急診限犬貓)</p>
+                </div>
+              </section>
+            </div>
+            <div class="hd">聯絡我們</div>
+            <div class="bd">
+              <section>
+                <div>
+                  <label>電話</label>
+                  <p><a href="tel:<%= phone.info %>"><%= phone.info %></a></p>
+                </div>
+                <div>
+                  <label>Email</label>
+                  <p><a href="mailto:38edenah@gmail.com">38edenah@gmail.com</a></p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
         <section>
             <div class="bd">
                 <div class="fb-page" data-href="https://www.facebook.com/EdenAnimalHosp/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/EdenAnimalHosp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/EdenAnimalHosp/">Facebook專頁</a></blockquote></div>

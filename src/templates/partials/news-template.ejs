@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <% var page = index; var pageName = 'FILEKEY'; %>
+    <% include ../templates/partials/head.ejs %>
+    <body>
+        <div class="page news">
+            <div class="wrap">
+                <% include ../templates/partials/header.ejs %>
+                <% include ../templates/partials/hero.ejs %>
+                <div class="body">
+                    <div class="content">
+                        <main>
+                            <div class="markdown">
+                              FILEPATH
+                            </div>
+                        </main>
+                    </div>
+                    <% include ../templates/partials/sidebar.ejs %>
+                </div>
+                <% include ../templates/partials/footer.ejs %>
+            </div>
+        </div>
+        <% include ../templates/partials/map.ejs %>
+    </body>
+    <% include ../templates/partials/scripts.ejs %>
+</html>
