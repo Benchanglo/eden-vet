@@ -1,34 +1,16 @@
 <div class="header">
     <header>
-        <div class="nav">
-            <nav>
-                <ul>
-                    <%
-                        var pageNameOrg = pageName;
-                        if (pageName === 'people' || pageName === 'schedule') {
-                            pageName = 'index';
-                        }
-                    %>
-                    <% for (var i = 0; i < nav.length; i += 1) { %>
-                        <li>
-                            <a data-pagename="<%= nav[i].page %>" href="<%= nav[i].url %>"
-                                <% if (pageName === nav[i].page) { %>class="selected"<% } %>
-                            >
-                                <%= nav[i].name %>
-                            </a>
-                        </li>
-                    <% } %>
-                    <% pageName = pageNameOrg; %>
-                </ul>
-            </nav>
-        </div>
-        <h1 class="title">
-            <a class="name" href="./">伊甸動物醫院</a>
-            <span class="tagline">台北24小時急診</span>
-        </h1>
-        <div class="phone">
-            <span class="label"><span class="notxt"><%= phone.label %></span></span>
-            <span class="info"><a href="tel:<%= phone.info %>"><%= phone.info %></a></span>
+        <div class="banner">
+          <h1 class="title">
+              <a href="./">
+                <span class="notxt">伊甸動物醫院</span>
+              </a>
+          </h1>
+          <div class="right">
+            <div class="phone">
+              <span class="label"><span class="notxt"><%= phone.label %></span></span>
+              <span class="info"><a href="tel:<%= phone.info %>">預約門診及24小時急診電話 <%= phone.info %></a></span>
+            </div>
             <div class="address">
                 <address>
                     <span class="label notxt"><%= address.label %></span>
@@ -41,6 +23,60 @@
                     <span class="note"><%= address.note %></span>
                 </address>
             </div>
+            <div class="nav">
+                <nav>
+                    <ul>
+                        <% for (var i = 0; i < nav.length; i += 1) { %>
+                            <% var news = 'news'; %>
+                            <li>
+                              <% if (nav[i].url) { %>
+                                <a data-pagename="<%= nav[i].page %>" href="<%= nav[i].url %>"
+                                    <% if (pageName === nav[i].page || (pageName.includes(news) && nav[i].page === news) ) { %>class="selected"<% } %>
+                                >
+                                    <%= nav[i].name %>
+                                </a>
+                              <% } else if (nav[i].submenu) { %>
+                                <a href='' class="<%= nav[i].page %><% if ((nav[i].submenu.filter(entry => entry.page === pageName).length > 0)) { %> selected<% } %>">
+                                  <%= nav[i].name %>
+                                </a>
+                                <div class="submenu">
+                                  <% for (var j = 0; j < nav[i].submenu.length; j += 1) { %>
+                                    <a data-pagename="<%= nav[i].submenu[j].page %>" href="<%= nav[i].submenu[j].url %>">
+                                      <%= nav[i].submenu[j].name %>
+                                    </a>
+                                  <% } %>
+                                </div>
+                              <% } %>
+                            </li>
+                        <% } %>
+                    </ul>
+                </nav>
+            </div>
+          </div>
+          <button class="nav-mobile-toggle">
+            <span class="notxt">選單</span>
+          </button>
+        </div>
+        <div class="nav-mobile">
+            <nav>
+                <ul>
+                    <% for (var i = 0; i < nav.length; i += 1) { %>
+                        <li>
+                          <% if (nav[i].url) { %>
+                            <a data-pagename="<%= nav[i].page %>" href="<%= nav[i].url %>"
+                                <% if (pageName === nav[i].page) { %>class="selected"<% } %>
+                            >
+                                <%= nav[i].name %>
+                            </a>
+                          <% } else if (nav[i].submenu) { %>
+                            <a href="<%= nav[i].submenu[0].url %>" class="<%= nav[i].page %><% if ((nav[i].submenu.filter(entry => entry.page === pageName).length > 0)) { %> selected<% } %>">
+                              <%= nav[i].name %>
+                            </a>
+                          <% } %>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav>
         </div>
     </header>
 </div>

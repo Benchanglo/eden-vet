@@ -218,6 +218,38 @@ var app = {
             toggleMap(document.body, 'overlay');
         });
     },
+    bindMenuToggle: function () {
+      var toggleSubmenu = function (target, className) {
+          if (target.className.indexOf(className) < 0) {
+              target.className = 'submenu ' + className;
+          } else {
+              target.className = 'submenu';
+          }
+      };
+      var services = document.querySelector('.nav .services');
+      var submenu = document.querySelector('.nav .submenu');
+      var bindLinkEvent = function (obj) {
+          obj.addEventListener('click', function (e) {
+              e.preventDefault();
+              toggleSubmenu(submenu, 'show');
+          });
+      };
+      bindLinkEvent(services);
+    },
+    bindMobileMenuToggle: function () {
+      var toggleMenu = function (target, className) {
+          if (target.className.indexOf(className) < 0) {
+              target.className = className;
+          } else {
+              target.className = '';
+          }
+      };
+      var btn = document.querySelector('.nav-mobile-toggle');
+      var menu = document.querySelector('.nav-mobile nav');
+      btn.addEventListener('click', function () {
+          toggleMenu(menu, 'on');
+      });
+    },
     appendCSS: function (filePath) {
         var style = document.createElement('link');
         var head = document.getElementsByTagName('head')[0];
@@ -235,8 +267,10 @@ var app = {
             appendCSS('./production.css');
         }
         */
-        app.appendCSS('./production.css');
+        // app.appendCSS('./production.css');
         app.bindMapToggle();
+        app.bindMenuToggle();
+        app.bindMobileMenuToggle();
         app.doms.domainBtns = document.getElementsByClassName('select-domain');
         if (app.doms.domainBtns.length > 0) {
             app.doms.domainBtns[app.params.selectedDomain].className += ' selected';

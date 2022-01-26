@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <% var page = index; var pageName = 'news'; %>
+    <% include ./partials/head.ejs %>
+    <body>
+        <div class="page news">
+            <div class="wrap">
+                <% include ./partials/header.ejs %>
+                <% include ./partials/hero.ejs %>
+                <div class="body">
+                    <div class="content">
+                        <main>
+                            <section>
+                              <ul class="news">
+                                <% for (var i = news.length - 1; i >= 0; i-= 1) { %>
+                                  <li>
+                                    <a href="./<%= news[i].filename %>">
+                                      <div class="date"><%= news[i].date %></div>
+                                      <div class="hd"><%= news[i].title %></div>
+                                      <div class="bd"><%= news[i].summary %></div>
+                                    </a>
+                                  </li>
+                                <% } %>
+                              </ul>
+                            </section>
+                        </main>
+                    </div>
+                    <% include ./partials/sidebar.ejs %>
+                </div>
+                <% include ./partials/footer.ejs %>
+            </div>
+        </div>
+        <% include ./partials/map.ejs %>
+    </body>
+    <% include ./partials/scripts.ejs %>
+</html>

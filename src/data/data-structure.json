@@ -6,19 +6,40 @@
             "name": "首頁"
         },
         {
-            "url": "./er.html",
-            "page": "er",
-            "name": "寵物醫院24小時急診"
+            "url": "./people.html",
+            "page": "people",
+            "name": "醫療團隊"
         },
         {
-            "url": "./divisions.html",
-            "page": "divisions",
-            "name": "各科專科"
+            "name": "診療項目",
+            "page": "services",
+            "submenu": [
+              {
+                "url": "./divisions.html",
+                "page": "divisions",
+                "name": "各科專科"
+              },
+              {
+                "url": "./beyond-dog-cat.html",
+                "page": "beyond-dog-cat",
+                "name": "特寵門診"
+              },
+              {
+                "url": "./er.html",
+                "page": "er",
+                "name": "24小時急診"
+              }
+            ]
         },
         {
-            "url": "./beyond-dog-cat.html",
-            "page": "beyond-dog-cat",
-            "name": "特寵門診"
+            "url": "./schedule.html",
+            "page": "schedule",
+            "name": "門診時間"
+        },
+        {
+            "url": "./news.html",
+            "page": "news",
+            "name": "最新消息"
         }
     ],
     "phone": {
@@ -27,7 +48,7 @@
     },
     "address": {
         "label": "地址：",
-        "info": "台北市北安路554巷33號",
+        "info": "台北市中山區北安路554巷33號",
         "note": "捷運大直站"
     },
     "index": {
@@ -233,7 +254,7 @@
                     "臺灣大學獸醫學研究所臨床組大動物暨野生動物組碩士 ",
                     "國家獸醫師專門職業及技術人員高等考試合格",
                     "國立臺灣大學獸醫學系學士",
-                    "臺灣大學附設動物醫院大動物暨野生動物組非犬貓門診醫師",
+                    "臺灣大學附設動物醫院大動物暨野生動物組特寵門診醫師",
                     "臺灣大學附設動物醫院大動物暨野生動物組住院醫師"
                 ]
              },
@@ -449,11 +470,6 @@
             "title": "特色服務項目",
             "ul": [
                 {
-                    "name": "24小時急診",
-                    "page": "er",
-                    "url": "./er.html"
-                },
-                {
                     "name": "各科專科",
                     "page": "divisions",
                     "url": "./divisions.html"
@@ -462,8 +478,12 @@
                     "name": "特寵門診",
                     "page": "beyond-dog-cat",
                     "url": "./beyond-dog-cat.html"
+                },
+                {
+                    "name": "24小時急診",
+                    "page": "er",
+                    "url": "./er.html"
                 }
-                
             ]
         },
         {
